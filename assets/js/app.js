@@ -19,3 +19,30 @@ rightCol.id = 'rightCol';
 document.getElementById('mainContent').appendChild(rightCol)
 
 document.getElementById('main').appendChild(document.createElement('footer'))
+
+
+
+
+fetch('https://api.themoviedb.org/3/movie/popular?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
+    console.log(res)
+    if (res.ok) {
+        var popularSlide = document.createElement('div')
+        popularSlide.id = 'popularSlide'
+        document.getElementById('allSlider').appendChild(popularSlide)
+        res.json().then(response => {
+            console.log(response)
+            for (i = 0; i < 20; i++) {
+                var card = document.createElement('div')
+                card.classList = 'card'
+                document.getElementById('popularSlide').appendChild(card)
+                var img = document.createElement('img');
+                img.classList = 'popularSlider'
+                img.src = 'https://image.tmdb.org/t/p/original' + response.results[i].poster_path
+                document.getElementsByClassName('card')[i].appendChild(img)
+                var title = document.createElement('div')
+                title.textContent = response.results[i].title
+                document.getElementsByClassName('card')[i].appendChild(title)
+            }
+        })
+    }
+})
