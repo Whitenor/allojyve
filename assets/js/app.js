@@ -1,14 +1,47 @@
+// Header
+
+var header = document.createElement('header');
+header.id = 'header';
+document.getElementById('main').appendChild(header)
+
 var navbar = document.createElement('nav');
 navbar.id = 'nav';
-document.getElementById('main').appendChild(navbar);
+document.getElementById('header').appendChild(navbar);
 
 var logoNav = document.createElement('img');
-logoNav.src = 'assets/img/allojyve_logo.png'
+logoNav.src = 'assets/img/allojyve_logo.png';
+logoNav.id ='logoNav';
+document.getElementById('nav').appendChild(logoNav);
+
+for (let i = 0; i < 3; i++) {
+    var arrayNav = ['Prochainement', 'affiche', 'Populaires'];
+    var creation = document.createElement('a');
+    if (i == 1) {
+        creation.href = '#nowPlaying';
+        creation.textContent = "À l'"+arrayNav[i];
+    }
+    else {
+        creation.href = '#'+arrayNav[i];
+        creation.textContent =arrayNav[i];
+    }
+    document.getElementById('nav').appendChild(creation);
+}
 
 var mobileNav = document.createElement('div');
 mobileNav.id = 'mobileNav';
 mobileNav.classList = 'none'
-document.getElementById('main').appendChild(mobileNav)
+document.getElementById('main').appendChild(mobileNav);
+
+
+
+
+
+
+
+// Contenu Principal
+
+
+
 
 var mainCont = document.createElement('div');
 mainCont.id = 'mainContent';
@@ -16,17 +49,25 @@ document.getElementById('main').appendChild(mainCont);
 
 var leftCol = document.createElement('div');
 leftCol.id = 'leftCol';
-document.getElementById('mainContent').appendChild(leftCol)
+document.getElementById('mainContent').appendChild(leftCol);
 
 var allSlider = document.createElement('div');
 allSlider.id = 'allSlider';
-document.getElementById('mainContent').appendChild(allSlider)
+document.getElementById('mainContent').appendChild(allSlider);
 
 var rightCol = document.createElement('div');
 rightCol.id = 'rightCol';
-document.getElementById('mainContent').appendChild(rightCol)
+document.getElementById('mainContent').appendChild(rightCol);
 
-document.getElementById('main').appendChild(document.createElement('footer'))
+
+// Footer
+
+
+
+document.getElementById('main').appendChild(document.createElement('footer'));
+
+
+
 
 
 
@@ -35,7 +76,7 @@ fetch('https://api.themoviedb.org/3/movie/popular?api_key=9e9d157f9d784170b706af
     if (res.ok) {
         var populaire = document.createElement('h2')
         populaire.textContent = 'Populaires'
-        populaire.id = 'populairesTitle'
+        populaire.id = 'Populaires'
         document.getElementById('allSlider').appendChild(populaire)
         var popularSlide = document.createElement('div')
         popularSlide.id = 'popularSlide';
