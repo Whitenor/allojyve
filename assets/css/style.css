@@ -11,10 +11,22 @@ h2{
 .none{
     display: none;
 }
+
+
+
+#nav{
+    padding: 0;
+    width: 100vw;
+    height: 18.52vh;
+    background-color: white;
+}
+
+
+
 #mainContent{
     display: flex;
     flex-direction: row;
-    width: 100vw;
+    width: 100%;
     justify-content: space-between;
 }
 #popularSlide{
@@ -90,12 +102,12 @@ h2{
   background: #c4c4c4;
 }
 ::-webkit-scrollbar-track {
-  background: #ffffff;
+  background: black;
   border: 0px none #ffffff;
   border-radius: 50px;
 }
 ::-webkit-scrollbar-track:hover {
-  background: #ffffff;
+  background: black;
 }
 ::-webkit-scrollbar-track:active {
   background: #333333;
