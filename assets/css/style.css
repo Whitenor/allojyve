@@ -27,6 +27,13 @@ h2{
     height: 187px;
     width: auto;
 }
+#nav > a {
+    font-size: 40px;
+    font-family: 'Ubuntu', sans-serif;
+    text-decoration: none;
+    color: black;
+    margin: 0 50px;
+}
 
 
 
@@ -37,7 +44,7 @@ h2{
     justify-content: space-between;
 }
 #popularSlide{
-    width: 70vw;
+    width: 60vw;
     height: auto;
     display: flex;
     overflow-x: scroll;
