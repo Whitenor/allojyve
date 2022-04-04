@@ -24,13 +24,15 @@ document.getElementById('main').appendChild(document.createElement('footer'))
 
 
 fetch('https://api.themoviedb.org/3/movie/popular?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
-    console.log(res)
     if (res.ok) {
+        var populaire = document.createElement('h2')
+        populaire.textContent = 'Populaires'
+        populaire.id = 'populairesTitle'
+        document.getElementById('allSlider').appendChild(populaire)
         var popularSlide = document.createElement('div')
         popularSlide.id = 'popularSlide'
         document.getElementById('allSlider').appendChild(popularSlide)
         res.json().then(response => {
-            console.log(response)
             for (i = 0; i < 20; i++) {
                 var card = document.createElement('div')
                 card.classList = 'card'
