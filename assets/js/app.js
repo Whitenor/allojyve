@@ -2,6 +2,11 @@ var navbar = document.createElement('nav');
 navbar.id = 'nav';
 document.getElementById('main').appendChild(navbar);
 
+var mobileNav = document.createElement('div');
+mobileNav.id = 'mobileNav';
+mobileNav.classList = 'none'
+document.getElementById('main').appendChild(mobileNav)
+
 var mainCont = document.createElement('div');
 mainCont.id = 'mainContent';
 document.getElementById('main').appendChild(mainCont);

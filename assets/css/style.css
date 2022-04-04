@@ -8,6 +8,9 @@
 h2{
     font-family: 'Ubuntu', sans-serif;
 }
+.none{
+    display: none;
+}
 #mainContent{
     display: flex;
     flex-direction: row;
