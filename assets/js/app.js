@@ -4,6 +4,11 @@ var header = document.createElement('header');
 header.id = 'header';
 document.getElementById('main').appendChild(header)
 
+var siteTitle = document.createElement('h1');
+siteTitle.textContent = 'AlloJyvé';
+siteTitle.classList ='none';
+document.getElementById('header').appendChild(siteTitle);
+
 var navbar = document.createElement('nav');
 navbar.id = 'nav';
 document.getElementById('header').appendChild(navbar);

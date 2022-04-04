@@ -24,11 +24,11 @@ h2{
     justify-content: center;
 }
 #logoNav{
-    height: 187px;
+    height: 17.31vh;
     width: auto;
 }
 #nav > a {
-    font-size: 40px;
+    font-size: 2.2rem;
     font-family: 'Ubuntu', sans-serif;
     text-decoration: none;
     color: black;
