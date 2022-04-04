@@ -15,11 +15,13 @@
     overflow-x: scroll;
 }
 .card{
-    margin: 10px;
+    margin: 0 20px;
 }
 .popularSlider{
     width: auto;
     height: 300px;
+    filter: drop-shadow(12px 8px 5px rgba(0, 0, 0, 0.25));
+    border-radius: 15px;
 }
 #allSlider {
     display: flex;
@@ -39,4 +41,39 @@
     min-height: 100vh;
     background-color: #FFDC00;
     border-right: solid 3.33vw black;
+}
+
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border: 0px none #ffffff;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c4c4c4;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #c4c4c4;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
