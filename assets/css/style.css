@@ -30,7 +30,7 @@ h2{
     justify-content: space-between;
 }
 #popularSlide{
-    width: 50vw;
+    width: 70vw;
     height: auto;
     display: flex;
     overflow-x: scroll;
@@ -53,13 +53,13 @@ h2{
 }
 #leftCol{
     width: 5.42vw;
-    min-height: 100vh;
+    min-height: 100%;
     background-color: #FFDC00;
     border-left: solid 3.33vw black;
 }
 #rightCol{
     width: 5.42vw;
-    min-height: 100vh;
+    min-height: 100%;
     background-color: #FFDC00;
     border-right: solid 3.33vw black;
 }
