@@ -22,7 +22,7 @@ for (let i = 0; i < 3; i++) {
     var arrayNav = ['Prochainement', 'affiche', 'Populaires'];
     var creation = document.createElement('a');
     if (i == 1) {
-        creation.href = '#nowPlayingTitle';
+        creation.href = '#nowPlayingsTitle';
         creation.textContent = "À l'"+arrayNav[i];
     }
     else {
@@ -68,14 +68,15 @@ document.getElementById('mainContent').appendChild(rightCol);
 
 fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
     if (res.ok) {
-        var nowPlaying = document.createElement('h2')
-        nowPlaying.textContent = 'À l\'affiche'
-        nowPlaying.id = 'nowPlayingsTitle'
-        nowPlaying.classList='sliderTitle'
-        document.getElementById('allSlider').appendChild(nowPlaying)
-        var nowPlayingSlide = document.createElement('div')
+        var nowPlaying = document.createElement('h2');
+        nowPlaying.textContent = 'À l\'affiche';
+        nowPlaying.id = 'nowPlayingsTitle';
+        nowPlaying.classList='sliderTitle';
+        document.getElementById('allSlider').appendChild(nowPlaying);
+        var nowPlayingSlide = document.createElement('div');
         nowPlayingSlide.id = 'nowPlayingSlide';
-        document.getElementById('allSlider').appendChild(nowPlayingSlide)
+        nowPlayingSlide.classList='slider';
+        document.getElementById('allSlider').appendChild(nowPlayingSlide);
         res.json().then(response => {
             for (i = 0; i < 20; i++) {
                 var card2 = document.createElement('div');
@@ -93,7 +94,16 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=9e9d157f9d784170b7
     }
 })
 
+// function getList(
+//     listName
+// ){
+//     fetch('htttps://wwwvrgr'+listName+'gregregreg')
+// }
 
+
+// getList('popular', )
+// getList('last', )
+// getList('r"g"f', )
 
 fetch('https://api.themoviedb.org/3/movie/popular?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
     if (res.ok) {
@@ -104,6 +114,7 @@ fetch('https://api.themoviedb.org/3/movie/popular?api_key=9e9d157f9d784170b706af
         document.getElementById('allSlider').appendChild(populaire)
         var popularSlide = document.createElement('div')
         popularSlide.id = 'popularSlide';
+        popularSlide.classList = 'slider';
         document.getElementById('allSlider').appendChild(popularSlide)
         res.json().then(response => {
             console.log(response);
