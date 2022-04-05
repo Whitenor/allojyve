@@ -1,38 +1,26 @@
 // Header
-createElement('header','header','main','','','')
+createElement('header','header','main','','','','')
 createElement('h1','','header','none','','AlloJyvé')
-createElement('nav','nav','header','','','')
-createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','')
+createElement('nav','nav','header','','','','')
+createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','','')
 
-for (let i = 0; i < 3; i++) {
-    var arrayNav = ['Prochainement', 'affiche', 'Populaires'];
-    var creation = document.createElement('a');
-    if (i == 1) {
-        creation.href = '#nowPlayingsTitle';
-        creation.textContent = "À l'"+arrayNav[i];
-    }
-    else {
-        creation.href = '#'+arrayNav[i];
-        creation.textContent =arrayNav[i];
-    }
-    document.getElementById('nav').appendChild(creation);
-}
-
-createElement('div', 'mobileNav', 'main', 'none','','');
+createElement('a','', 'nav','','','À l\'affiche','#nowPlayingsTitle')
+createElement('a','', 'nav','','','Populaires','#popularTitle')
+createElement('a','', 'nav','','','Prochainement','#upcomingTitle')
+createElement('div', 'mobileNav', 'main', 'none','','','');
 
 // Contenu Principal
 
-createElement('div','mainContent', 'main','','','')
-createElement('div','leftCol', 'mainContent','','','')
-createElement('div','allSlider', 'mainContent','','','')
-createElement('div','rightCol', 'mainContent','','','')
+createElement('div','mainContent', 'main','','','','')
+createElement('div','leftCol', 'mainContent','','','','')
+createElement('div','allSlider', 'mainContent','','','','')
+createElement('div','rightCol', 'mainContent','','','','')
 
-getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcoming');
-getList('now_playing','À l\'affiche','nowPlayingsTitle', 'nowPlayingSlide', 'cardNowPlaying');
-getList('popular', 'Populaires', 'popularTitle', 'popularSlide', 'cardPopular');
+getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcoming', 'upcoming');
+getList('now_playing','À l\'affiche','nowPlayingsTitle', 'nowPlayingSlide', 'cardNowPlaying', 'now playing');
+getList('popular', 'Populaires', 'popularTitle', 'popularSlide', 'cardPopular', 'popular');
 
-
-function getList(listName, titleContent, titleID, sliderID, cardClassSpec,){
+function getList(listName, titleContent, titleID, sliderID, cardClassSpec, test){
     fetch('https://api.themoviedb.org/3/movie/'+listName+'?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
         if (res.ok) {
             var titleSlider = document.createElement('h2')
@@ -46,6 +34,7 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec,){
             document.getElementById('allSlider').appendChild(Slide)
             res.json().then(response => {
                 console.log(response);
+                console.log(test)
                 for (i = 0; i < 20; i++) {
                     var card = document.createElement('div');
                     card.classList = 'card '+cardClassSpec;
@@ -63,12 +52,13 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec,){
     })
 }
 
-function createElement(typeElement, elementID, elementIDPosition, elementClass, elementSrc, elementTextContent){
+function createElement(typeElement, elementID, elementIDPosition, elementClass, elementSrc, elementTextContent, elementHref){
     var createElement = document.createElement(typeElement);
     createElement.id = elementID;
     createElement.classList = elementClass;
     createElement.src = elementSrc;
     createElement.textContent = elementTextContent;
+    createElement.href = elementHref;
     document.getElementById(elementIDPosition).appendChild(createElement);
 }
 
