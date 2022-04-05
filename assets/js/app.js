@@ -80,4 +80,3 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=9e9d157f9d784170b7
         })
     }
 })
-
