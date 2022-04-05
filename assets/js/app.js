@@ -22,7 +22,7 @@ for (let i = 0; i < 3; i++) {
     var arrayNav = ['Prochainement', 'affiche', 'Populaires'];
     var creation = document.createElement('a');
     if (i == 1) {
-        creation.href = '#nowPlaying';
+        creation.href = '#nowPlayingTitle';
         creation.textContent = "À l'"+arrayNav[i];
     }
     else {
@@ -63,6 +63,36 @@ document.getElementById('mainContent').appendChild(allSlider);
 var rightCol = document.createElement('div');
 rightCol.id = 'rightCol';
 document.getElementById('mainContent').appendChild(rightCol);
+
+
+
+fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
+    if (res.ok) {
+        var nowPlaying = document.createElement('h2')
+        nowPlaying.textContent = 'À l\'affiche'
+        nowPlaying.id = 'nowPlayingTitle'
+        document.getElementById('allSlider').appendChild(nowPlaying)
+        var nowPlayingSlide = document.createElement('div')
+        nowPlayingSlide.id = 'nowPlayingSlide';
+        document.getElementById('allSlider').appendChild(nowPlayingSlide)
+        res.json().then(response => {
+            for (i = 0; i < 20; i++) {
+                var card2 = document.createElement('div');
+                card2.classList = 'card2';
+                document.getElementById('nowPlayingSlide').appendChild(card2);
+                var img = document.createElement('img');
+                img.classList = 'nowPlayingSlider';
+                img.src = 'https://image.tmdb.org/t/p/original' + response.results[i].poster_path;
+                document.getElementsByClassName('card2')[i].appendChild(img);
+                var title = document.createElement('div');
+                title.textContent = response.results[i].title;
+                document.getElementsByClassName('card2')[i].appendChild(title);
+            }
+        })
+    }
+})
+
+
 
 fetch('https://api.themoviedb.org/3/movie/popular?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
     if (res.ok) {

@@ -43,6 +43,7 @@ h2{
 #mainContent{
     display: flex;
     flex-direction: row;
+    min-height: 100vh;
     width: 100%;
     justify-content: space-between;
 }
@@ -51,6 +52,12 @@ h2{
     height: auto;
     display: flex;
     overflow-x: scroll;
+}
+#nowPlayingSlide{
+  width: 60vw;
+  height: auto;
+  display: flex;
+  overflow-x: scroll;
 }
 .card{
     margin: 0 20px;
@@ -61,9 +68,16 @@ h2{
     filter: drop-shadow(12px 8px 5px rgba(0, 0, 0, 0.25));
     border-radius: 15px;
 }
+.nowPlayingSlider{
+  width: auto;
+  height: 300px;
+  filter: drop-shadow(12px 8px 5px rgba(0, 0, 0, 0.25));
+  border-radius: 15px;
+}
 #allSlider {
+    padding-top: 20vh;
     display: flex;
-    height: 100vh;
+    height: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -84,6 +98,7 @@ h2{
     position: relative;
     padding-bottom: 10px;
     margin-bottom: 20px;
+    margin-top: 100px;
     text-align: center;
     font-size: 64px;
 }
