@@ -32,118 +32,57 @@ for (let i = 0; i < 3; i++) {
     document.getElementById('nav').appendChild(creation);
 }
 
-var mobileNav = document.createElement('div');
-mobileNav.id = 'mobileNav';
-mobileNav.classList = 'none'
-document.getElementById('main').appendChild(mobileNav);
-
-
-
-
-
-
+createDiv('mobileNav', 'main');
+document.getElementById('mobileNav').classList.add('none');
 
 // Contenu Principal
 
 
+createDiv('mainContent', 'main')
+createDiv('leftCol', 'mainContent')
+createDiv('allSlider', 'mainContent')
+createDiv('rightCol', 'mainContent')
 
+getList('now_playing','À l\'affiche','nowPlayingsTitle', 'nowPlayingSlide', 'cardNowPlaying');
+getList('popular', 'Populaires', 'Populaires', 'popularSlide', 'cardPopular');
 
-var mainCont = document.createElement('div');
-mainCont.id = 'mainContent';
-document.getElementById('main').appendChild(mainCont);
+function getList(listName, titleContent, titleID, sliderID, cardClassSpec,){
+    fetch('https://api.themoviedb.org/3/movie/'+listName+'?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
+        if (res.ok) {
+            var titleSlider = document.createElement('h2')
+            titleSlider.textContent = titleContent;
+            titleSlider.id = titleID;
+            titleSlider.classList ='sliderTitle';
+            document.getElementById('allSlider').appendChild(titleSlider);
+            var Slide = document.createElement('div');
+            Slide.id = sliderID;
+            Slide.classList = 'slider';
+            document.getElementById('allSlider').appendChild(Slide)
+            res.json().then(response => {
+                console.log(response);
+                for (i = 0; i < 20; i++) {
+                    var card = document.createElement('div');
+                    card.classList = 'card '+cardClassSpec;
+                    document.getElementById(sliderID).appendChild(card);
+                    var img = document.createElement('img');
+                    img.classList = 'imgSlider';
+                    img.src = 'https://image.tmdb.org/t/p/original' + response.results[i].poster_path;
+                    document.getElementsByClassName(cardClassSpec)[i].appendChild(img);
+                    var title = document.createElement('div');
+                    title.textContent = response.results[i].title;
+                    document.getElementsByClassName(cardClassSpec)[i].appendChild(title);
+                }
+            })
+        }
+    })
+}
 
-var leftCol = document.createElement('div');
-leftCol.id = 'leftCol';
-document.getElementById('mainContent').appendChild(leftCol);
-
-var allSlider = document.createElement('div');
-allSlider.id = 'allSlider';
-document.getElementById('mainContent').appendChild(allSlider);
-
-var rightCol = document.createElement('div');
-rightCol.id = 'rightCol';
-document.getElementById('mainContent').appendChild(rightCol);
-
-
-
-fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
-    if (res.ok) {
-        var nowPlaying = document.createElement('h2');
-        nowPlaying.textContent = 'À l\'affiche';
-        nowPlaying.id = 'nowPlayingsTitle';
-        nowPlaying.classList='sliderTitle';
-        document.getElementById('allSlider').appendChild(nowPlaying);
-        var nowPlayingSlide = document.createElement('div');
-        nowPlayingSlide.id = 'nowPlayingSlide';
-        nowPlayingSlide.classList='slider';
-        document.getElementById('allSlider').appendChild(nowPlayingSlide);
-        res.json().then(response => {
-            for (i = 0; i < 20; i++) {
-                var card2 = document.createElement('div');
-                card2.classList = 'card cardNowPlaying';
-                document.getElementById('nowPlayingSlide').appendChild(card2);
-                var img = document.createElement('img');
-                img.classList = 'imgSlider';
-                img.src = 'https://image.tmdb.org/t/p/original' + response.results[i].poster_path;
-                document.getElementsByClassName('cardNowPlaying')[i].appendChild(img);
-                var title = document.createElement('div');
-                title.textContent = response.results[i].title;
-                document.getElementsByClassName('cardNowPlaying')[i].appendChild(title);
-            }
-        })
-    }
-})
-
-// function getList(
-//     listName
-// ){
-//     fetch('htttps://wwwvrgr'+listName+'gregregreg')
-// }
-
-
-// getList('popular', )
-// getList('last', )
-// getList('r"g"f', )
-
-fetch('https://api.themoviedb.org/3/movie/popular?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
-    if (res.ok) {
-        var populaire = document.createElement('h2')
-        populaire.textContent = 'Populaires'
-        populaire.id = 'Populaires'
-        populaire.classList='sliderTitle'
-        document.getElementById('allSlider').appendChild(populaire)
-        var popularSlide = document.createElement('div')
-        popularSlide.id = 'popularSlide';
-        popularSlide.classList = 'slider';
-        document.getElementById('allSlider').appendChild(popularSlide)
-        res.json().then(response => {
-            console.log(response);
-            for (i = 0; i < 20; i++) {
-                var card = document.createElement('div');
-                card.classList = 'card cardPopular';
-                document.getElementById('popularSlide').appendChild(card);
-                var img = document.createElement('img');
-                img.classList = 'imgSlider';
-                img.src = 'https://image.tmdb.org/t/p/original' + response.results[i].poster_path;
-                document.getElementsByClassName('cardPopular')[i].appendChild(img);
-                var title = document.createElement('div');
-                title.textContent = response.results[i].title;
-                document.getElementsByClassName('cardPopular')[i].appendChild(title);
-            }
-        })
-    }
-})
-
+function createDiv(divID, divIDPosition){
+    var createDiv = document.createElement('div');
+    createDiv.id = divID;
+    document.getElementById(divIDPosition).appendChild(createDiv);
+}
 
 // Footer
 
-
-
 document.getElementById('main').appendChild(document.createElement('footer'));
-
-
-
-
-
-
-
