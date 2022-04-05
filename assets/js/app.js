@@ -1,22 +1,8 @@
 // Header
-
-var header = document.createElement('header');
-header.id = 'header';
-document.getElementById('main').appendChild(header)
-
-var siteTitle = document.createElement('h1');
-siteTitle.textContent = 'AlloJyvé';
-siteTitle.classList ='none';
-document.getElementById('header').appendChild(siteTitle);
-
-var navbar = document.createElement('nav');
-navbar.id = 'nav';
-document.getElementById('header').appendChild(navbar);
-
-var logoNav = document.createElement('img');
-logoNav.src = 'assets/img/allojyve_logo.png';
-logoNav.id ='logoNav';
-document.getElementById('nav').appendChild(logoNav);
+createElement('header','header','main','','','')
+createElement('h1','','header','none','','AlloJyvé')
+createElement('nav','nav','header','','','')
+createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','')
 
 for (let i = 0; i < 3; i++) {
     var arrayNav = ['Prochainement', 'affiche', 'Populaires'];
@@ -32,19 +18,19 @@ for (let i = 0; i < 3; i++) {
     document.getElementById('nav').appendChild(creation);
 }
 
-createDiv('mobileNav', 'main');
-document.getElementById('mobileNav').classList.add('none');
+createElement('div', 'mobileNav', 'main', 'none','','');
 
 // Contenu Principal
 
+createElement('div','mainContent', 'main','','','')
+createElement('div','leftCol', 'mainContent','','','')
+createElement('div','allSlider', 'mainContent','','','')
+createElement('div','rightCol', 'mainContent','','','')
 
-createDiv('mainContent', 'main')
-createDiv('leftCol', 'mainContent')
-createDiv('allSlider', 'mainContent')
-createDiv('rightCol', 'mainContent')
-
+getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcoming');
 getList('now_playing','À l\'affiche','nowPlayingsTitle', 'nowPlayingSlide', 'cardNowPlaying');
-getList('popular', 'Populaires', 'Populaires', 'popularSlide', 'cardPopular');
+getList('popular', 'Populaires', 'popularTitle', 'popularSlide', 'cardPopular');
+
 
 function getList(listName, titleContent, titleID, sliderID, cardClassSpec,){
     fetch('https://api.themoviedb.org/3/movie/'+listName+'?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
@@ -77,10 +63,13 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec,){
     })
 }
 
-function createDiv(divID, divIDPosition){
-    var createDiv = document.createElement('div');
-    createDiv.id = divID;
-    document.getElementById(divIDPosition).appendChild(createDiv);
+function createElement(typeElement, elementID, elementIDPosition, elementClass, elementSrc, elementTextContent){
+    var createElement = document.createElement(typeElement);
+    createElement.id = elementID;
+    createElement.classList = elementClass;
+    createElement.src = elementSrc;
+    createElement.textContent = elementTextContent;
+    document.getElementById(elementIDPosition).appendChild(createElement);
 }
 
 // Footer
