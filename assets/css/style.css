@@ -89,8 +89,7 @@ h2{
     background-color: #FFDC00;
     border-right: solid 3.33vw black;
 }
-#Populaires,
-#nowPlayingsTitle{
+.sliderTitle{
     position: relative;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -98,8 +97,7 @@ h2{
     text-align: center;
     font-size: 64px;
 }
-#nowPlayingsTitle::before,
-#Populaires::before{
+.sliderTitle::before{
     position: absolute;
     content: '';
     background: #fbdd00;

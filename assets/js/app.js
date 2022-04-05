@@ -100,6 +100,7 @@ fetch('https://api.themoviedb.org/3/movie/popular?api_key=9e9d157f9d784170b706af
         var populaire = document.createElement('h2')
         populaire.textContent = 'Populaires'
         populaire.id = 'Populaires'
+        populaire.classList='sliderTitle'
         document.getElementById('allSlider').appendChild(populaire)
         var popularSlide = document.createElement('div')
         popularSlide.id = 'popularSlide';
