@@ -71,6 +71,7 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=9e9d157f9d784170b7
         var nowPlaying = document.createElement('h2')
         nowPlaying.textContent = 'À l\'affiche'
         nowPlaying.id = 'nowPlayingsTitle'
+        nowPlaying.classList='sliderTitle'
         document.getElementById('allSlider').appendChild(nowPlaying)
         var nowPlayingSlide = document.createElement('div')
         nowPlayingSlide.id = 'nowPlayingSlide';
