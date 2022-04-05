@@ -16,11 +16,11 @@ createElement('div','leftCol', 'mainContent','','','','')
 createElement('div','allSlider', 'mainContent','','','','')
 createElement('div','rightCol', 'mainContent','','','','')
 
-getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcoming', 'upcoming');
-getList('now_playing','À l\'affiche','nowPlayingsTitle', 'nowPlayingSlide', 'cardNowPlaying', 'now playing');
-getList('popular', 'Populaires', 'popularTitle', 'popularSlide', 'cardPopular', 'popular');
+getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcoming');
+getList('now_playing','À l\'affiche','nowPlayingsTitle', 'nowPlayingSlide', 'cardNowPlaying');
+getList('popular', 'Populaires', 'popularTitle', 'popularSlide', 'cardPopular');
 
-function getList(listName, titleContent, titleID, sliderID, cardClassSpec, test){
+function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
     fetch('https://api.themoviedb.org/3/movie/'+listName+'?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
         if (res.ok) {
             var titleSlider = document.createElement('h2')
@@ -34,7 +34,6 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec, test)
             document.getElementById('allSlider').appendChild(Slide)
             res.json().then(response => {
                 console.log(response);
-                console.log(test)
                 for (i = 0; i < 20; i++) {
                     var card = document.createElement('div');
                     card.classList = 'card '+cardClassSpec;
