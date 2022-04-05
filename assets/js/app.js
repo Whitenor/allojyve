@@ -70,7 +70,7 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=9e9d157f9d784170b7
     if (res.ok) {
         var nowPlaying = document.createElement('h2')
         nowPlaying.textContent = 'À l\'affiche'
-        nowPlaying.id = 'nowPlayingTitle'
+        nowPlaying.id = 'nowPlayingsTitle'
         document.getElementById('allSlider').appendChild(nowPlaying)
         var nowPlayingSlide = document.createElement('div')
         nowPlayingSlide.id = 'nowPlayingSlide';
@@ -78,15 +78,15 @@ fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=9e9d157f9d784170b7
         res.json().then(response => {
             for (i = 0; i < 20; i++) {
                 var card2 = document.createElement('div');
-                card2.classList = 'card2';
+                card2.classList = 'card cardNowPlaying';
                 document.getElementById('nowPlayingSlide').appendChild(card2);
                 var img = document.createElement('img');
-                img.classList = 'nowPlayingSlider';
+                img.classList = 'imgSlider';
                 img.src = 'https://image.tmdb.org/t/p/original' + response.results[i].poster_path;
-                document.getElementsByClassName('card2')[i].appendChild(img);
+                document.getElementsByClassName('cardNowPlaying')[i].appendChild(img);
                 var title = document.createElement('div');
                 title.textContent = response.results[i].title;
-                document.getElementsByClassName('card2')[i].appendChild(title);
+                document.getElementsByClassName('cardNowPlaying')[i].appendChild(title);
             }
         })
     }
@@ -107,15 +107,15 @@ fetch('https://api.themoviedb.org/3/movie/popular?api_key=9e9d157f9d784170b706af
             console.log(response);
             for (i = 0; i < 20; i++) {
                 var card = document.createElement('div');
-                card.classList = 'card';
+                card.classList = 'card cardPopular';
                 document.getElementById('popularSlide').appendChild(card);
                 var img = document.createElement('img');
-                img.classList = 'popularSlider';
+                img.classList = 'imgSlider';
                 img.src = 'https://image.tmdb.org/t/p/original' + response.results[i].poster_path;
-                document.getElementsByClassName('card')[i].appendChild(img);
+                document.getElementsByClassName('cardPopular')[i].appendChild(img);
                 var title = document.createElement('div');
                 title.textContent = response.results[i].title;
-                document.getElementsByClassName('card')[i].appendChild(title);
+                document.getElementsByClassName('cardPopular')[i].appendChild(title);
             }
         })
     }
