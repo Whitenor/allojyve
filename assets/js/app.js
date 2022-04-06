@@ -1,14 +1,18 @@
 // Header
-createElement('header','header','main','','','')
-createElement('h1','h1','header','none','','AlloJyvé')
-createElement('nav','nav','header','','','')
-createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','')
+createElement('header','header','main','','','');
+createElement('h1','h1','header','none','','AlloJyvé');
 
-createElement('p','upcoming', 'nav','navBtn','','Prochainement')
-createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche')
-createElement('p','popular', 'nav','navBtn','','Populaires')
+createElement('nav','nav','header','','','');
+createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','');
+createElement('p','upcoming', 'nav','navBtn','','Prochainement');
+createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche');
+createElement('p','popular', 'nav','navBtn','','Populaires');
+
 createElement('div', 'mobileNav', 'header', '','','');
-createElement('div', 'menuMobile', 'mobileNav', '','','');
+createElement('div', 'topMobileNav', 'mobileNav', '','','');
+createElement('img','logoMobileNav','topMobileNav','','assets/img/allojyve_logo.png','')
+createElement('i', 'menuBurger', 'topMobileNav', 'fa-solid fa-bars fa-5x','','');
+createElement('div', 'menuMobile', 'mobileNav', 'none','','');
 createElement('div', 'upcoming', 'menuMobile', 'mobileNavBtn','','Prochainement');
 createElement('div', 'nowPlayings', 'menuMobile', 'mobileNavBtn','','À l\'affiche');
 createElement('div', 'popular', 'menuMobile', 'mobileNavBtn','','Populaires');
