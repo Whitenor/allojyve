@@ -10,9 +10,12 @@ createElement('p','popular', 'nav','navBtn','','Populaires');
 
 createElement('div', 'mobileNav', 'header', '','','');
 createElement('div', 'topMobileNav', 'mobileNav', '','','');
-createElement('img','logoMobileNav','topMobileNav','','assets/img/allojyve_logo.png','')
+createElement('img','','topMobileNav','logoMobileNav','assets/img/allojyve_logo.png','')
 createElement('i', 'menuBurger', 'topMobileNav', 'fa-solid fa-bars fa-5x','','');
 createElement('div', 'menuMobile', 'mobileNav', 'none','','');
+createElement('div', 'firstRow', 'menuMobile', '','','');
+createElement('img','','firstRow','logoMobileNav','assets/img/allojyve_logo.png','')
+createElement('i', '', 'firstRow', 'fa-solid fa-xmark fa-5x','','');
 createElement('div', 'upcoming', 'menuMobile', 'mobileNavBtn','','Prochainement');
 createElement('div', 'nowPlayings', 'menuMobile', 'mobileNavBtn','','À l\'affiche');
 createElement('div', 'popular', 'menuMobile', 'mobileNavBtn','','Populaires');
