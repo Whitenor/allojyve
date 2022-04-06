@@ -35,7 +35,6 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                 Slide.classList = 'slider';
                 document.getElementById('allSlider').appendChild(Slide)
                 res.json().then(response => {
-                    console.log(response);
                     for (i = 0; i < 20; i++) {
                         var card = document.createElement('div');
                         card.classList = 'card '+cardClassSpec;
@@ -76,23 +75,16 @@ window.addEventListener('keypress', function(){
     window.scrollTo(test2, test)
 })
 
-
-
-
-
 // test du click to move
 
-
 var buttons = document.getElementsByClassName('navBtn');
-console.log(buttons);
 for (let index = 0; index < buttons.length; index++) {
     const btn = buttons[index];
     btn.addEventListener('click', function (){
         var idBtn = document.getElementsByClassName('navBtn')[index].id;
-        var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 170;
+        var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 180;
+    
         var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
         window.scrollTo(offsetLeft, offsetTop);
     }) 
 }
-
-console.log(document.getElementsByTagName('div'))
