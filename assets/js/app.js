@@ -50,7 +50,7 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                         title.textContent = response.results[i].title;
                         document.getElementsByClassName(cardClassSpec)[i].appendChild(title);
                     }
-                    resolve('Success!');
+                    resolve();
                 })
             }
         })
