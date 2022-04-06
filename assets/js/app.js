@@ -30,6 +30,37 @@ getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcom
     getList('popular', 'Populaires', 'popularTitle', 'popularSlide', 'cardPopular');
 });
 
+// Footer
+
+document.getElementById('main').appendChild(document.createElement('footer'));
+ 
+document.getElementById('menuBurger').addEventListener('click', function(){
+    document.getElementById('topMobileNav').classList.add('none')
+    document.getElementById('menuMobile').classList.remove('none')
+})
+
+// test du click to move
+
+var buttons = document.getElementsByClassName('navBtn');
+for (let index = 0; index < buttons.length; index++) {
+    const btn = buttons[index];
+    btn.addEventListener('click', function (){
+        var idBtn = document.getElementsByClassName('navBtn')[index].id;
+        var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 180;
+        var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
+        window.scrollTo(offsetLeft, offsetTop);
+    }) 
+}
+var mobileButtons = document.getElementsByClassName('mobileNavBtn');
+for (let index = 0; index < mobileButtons.length; index++) {
+    const btn = mobileButtons[index];
+    btn.addEventListener('click', function (){
+        var idBtn = document.getElementsByClassName('mobileNavBtn')[index].id;
+        var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 180;
+        var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
+        window.scrollTo(offsetLeft, offsetTop);
+    }) 
+}
 function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
     return new Promise((resolve, reject) => {
         fetch('https://api.themoviedb.org/3/movie/'+listName+'?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR&page=1').then(res => {
@@ -70,31 +101,4 @@ function createElement(typeElement, elementID, elementIDPosition, elementClass, 
     createElement.src = elementSrc;
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDPosition).appendChild(createElement);
-}
-
-// Footer
-
-document.getElementById('main').appendChild(document.createElement('footer'));
- 
-// test du click to move
-
-var buttons = document.getElementsByClassName('navBtn');
-for (let index = 0; index < buttons.length; index++) {
-    const btn = buttons[index];
-    btn.addEventListener('click', function (){
-        var idBtn = document.getElementsByClassName('navBtn')[index].id;
-        var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 180;
-        var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
-        window.scrollTo(offsetLeft, offsetTop);
-    }) 
-}
-var mobileButtons = document.getElementsByClassName('mobileNavBtn');
-for (let index = 0; index < mobileButtons.length; index++) {
-    const btn = mobileButtons[index];
-    btn.addEventListener('click', function (){
-        var idBtn = document.getElementsByClassName('mobileNavBtn')[index].id;
-        var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 180;
-        var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
-        window.scrollTo(offsetLeft, offsetTop);
-    }) 
 }
