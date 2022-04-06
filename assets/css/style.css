@@ -29,6 +29,9 @@ h2{
     top: 0;
     z-index: 100;
 }
+#mobileNav{
+  display: none;
+}
 #logoNav{
     height: 17.31vh;
     width: auto;
@@ -39,6 +42,7 @@ h2{
     text-decoration: none;
     color: black;
     margin: 0 1vw;
+    cursor: pointer;
 }
 
 
@@ -138,4 +142,19 @@ h2{
 }
 .slider::-webkit-scrollbar-corner {
   background: transparent;
+}
+
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+  #nav {
+    display: none;
+  }
+  #mobileNav{
+    display: flex;
+    flex-direction: column;
+  }
 }

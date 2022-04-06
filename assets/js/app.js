@@ -7,7 +7,12 @@ createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','')
 createElement('p','upcoming', 'nav','navBtn','','Prochainement')
 createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche')
 createElement('p','popular', 'nav','navBtn','','Populaires')
-createElement('div', 'mobileNav', 'main', 'none','','');
+createElement('div', 'mobileNav', 'main', '','','');
+createElement('div', 'menuMobile', 'mobileNav', '','','');
+createElement('div', 'upcoming', 'menuMobile', '','','Prochainement');
+createElement('div', 'nowPlayings', 'menuMobile', '','','À l\'affiche');
+createElement('div', 'popular', 'menuMobile', '','','Populaires');
+
 
 // Contenu Principal
 
@@ -83,7 +88,6 @@ for (let index = 0; index < buttons.length; index++) {
     btn.addEventListener('click', function (){
         var idBtn = document.getElementsByClassName('navBtn')[index].id;
         var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 180;
-    
         var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
         window.scrollTo(offsetLeft, offsetTop);
     }) 
