@@ -7,11 +7,11 @@ createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','')
 createElement('p','upcoming', 'nav','navBtn','','Prochainement')
 createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche')
 createElement('p','popular', 'nav','navBtn','','Populaires')
-createElement('div', 'mobileNav', 'main', '','','');
+createElement('div', 'mobileNav', 'header', '','','');
 createElement('div', 'menuMobile', 'mobileNav', '','','');
-createElement('div', 'upcoming', 'menuMobile', '','','Prochainement');
-createElement('div', 'nowPlayings', 'menuMobile', '','','À l\'affiche');
-createElement('div', 'popular', 'menuMobile', '','','Populaires');
+createElement('div', 'upcoming', 'menuMobile', 'mobileNavBtn','','Prochainement');
+createElement('div', 'nowPlayings', 'menuMobile', 'mobileNavBtn','','À l\'affiche');
+createElement('div', 'popular', 'menuMobile', 'mobileNavBtn','','Populaires');
 
 
 // Contenu Principal
@@ -87,6 +87,16 @@ for (let index = 0; index < buttons.length; index++) {
     const btn = buttons[index];
     btn.addEventListener('click', function (){
         var idBtn = document.getElementsByClassName('navBtn')[index].id;
+        var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 180;
+        var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
+        window.scrollTo(offsetLeft, offsetTop);
+    }) 
+}
+var mobileButtons = document.getElementsByClassName('mobileNavBtn');
+for (let index = 0; index < mobileButtons.length; index++) {
+    const btn = mobileButtons[index];
+    btn.addEventListener('click', function (){
+        var idBtn = document.getElementsByClassName('mobileNavBtn')[index].id;
         var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 180;
         var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
         window.scrollTo(offsetLeft, offsetTop);
