@@ -33,7 +33,7 @@ h2{
     height: 17.31vh;
     width: auto;
 }
-#nav > a {
+#nav > p {
     font-size: 2rem;
     font-family: 'Ubuntu', sans-serif;
     text-decoration: none;
@@ -106,36 +106,36 @@ h2{
 }
 
 
-#popularSlide::-webkit-scrollbar {
+.slider::-webkit-scrollbar {
   width: 14px;
   height: 14px;
 }
-#popularSlide::-webkit-scrollbar-button {
+.slider::-webkit-scrollbar-button {
   width: 0px;
   height: 0px;
 }
-#popularSlide::-webkit-scrollbar-thumb {
+.slider::-webkit-scrollbar-thumb {
   background: #c4c4c4;
   border: 0px none #ffffff;
   border-radius: 8px;
 }
-#popularSlide::-webkit-scrollbar-thumb:hover {
+.slider::-webkit-scrollbar-thumb:hover {
   background: #c4c4c4;
 }
-#popularSlide::-webkit-scrollbar-thumb:active {
+.slider::-webkit-scrollbar-thumb:active {
   background: #c4c4c4;
 }
-#popularSlide::-webkit-scrollbar-track {
+.slider::-webkit-scrollbar-track {
   background: transparent;
   border: 0px none #ffffff;
   border-radius: 50px;
 }
-#popularSlide::-webkit-scrollbar-track:hover {
+.slider::-webkit-scrollbar-track:hover {
   background: transparent;
 }
-#popularSlide::-webkit-scrollbar-track:active {
+.slider::-webkit-scrollbar-track:active {
   background: #333333;
 }
-#popularSlide::-webkit-scrollbar-corner {
+.slider::-webkit-scrollbar-corner {
   background: transparent;
 }

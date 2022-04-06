@@ -1,27 +1,25 @@
 // Header
-createElement('header','header','main','','','','')
-createElement('h1','','header','none','','AlloJyvé')
-createElement('nav','nav','header','','','','')
-createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','','')
+createElement('header','header','main','','','')
+createElement('h1','h1','header','none','','AlloJyvé')
+createElement('nav','nav','header','','','')
+createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','')
 
-createElement('a','', 'nav','','','Prochainement','#upcomingTitle')
-createElement('a','', 'nav','','','À l\'affiche','#nowPlayingsTitle')
-createElement('a','', 'nav','','','Populaires','#popularTitle')
-createElement('div', 'mobileNav', 'main', 'none','','','');
+createElement('p','upcoming', 'nav','navBtn','','Prochainement')
+createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche')
+createElement('p','popular', 'nav','navBtn','','Populaires')
+createElement('div', 'mobileNav', 'main', 'none','','');
 
 // Contenu Principal
 
-createElement('div','mainContent', 'main','','','','')
-createElement('div','leftCol', 'mainContent','','','','')
-createElement('div','allSlider', 'mainContent','','','','')
-createElement('div','rightCol', 'mainContent','','','','')
+createElement('div','mainContent', 'main','','','')
+createElement('div','leftCol', 'mainContent','','','')
+createElement('div','allSlider', 'mainContent','','','')
+createElement('div','rightCol', 'mainContent','','','')
 
 getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcoming').then(res => {
     getList('now_playing','À l\'affiche','nowPlayingsTitle', 'nowPlayingSlide', 'cardNowPlaying');
     getList('popular', 'Populaires', 'popularTitle', 'popularSlide', 'cardPopular');
 });
-
-
 
 function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
     return new Promise((resolve, reject) => {
@@ -57,13 +55,12 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
     });
 }
 
-function createElement(typeElement, elementID, elementIDPosition, elementClass, elementSrc, elementTextContent, elementHref){
+function createElement(typeElement, elementID, elementIDPosition, elementClass, elementSrc, elementTextContent){
     var createElement = document.createElement(typeElement);
     createElement.id = elementID;
     createElement.classList = elementClass;
     createElement.src = elementSrc;
     createElement.textContent = elementTextContent;
-    createElement.href = elementHref;
     document.getElementById(elementIDPosition).appendChild(createElement);
 }
 
