@@ -67,6 +67,7 @@ function createElement(typeElement, elementID, elementIDPosition, elementClass, 
 // Footer
 
 document.getElementById('main').appendChild(document.createElement('footer'));
+ 
 window.addEventListener('keypress', function(){
     var test = document.getElementById('nowPlayingsTitle').offsetTop - 150
     console.log(test);
@@ -74,3 +75,24 @@ window.addEventListener('keypress', function(){
     console.log(test2);
     window.scrollTo(test2, test)
 })
+
+
+
+
+
+// test du click to move
+
+
+var buttons = document.getElementsByClassName('navBtn');
+console.log(buttons);
+for (let index = 0; index < buttons.length; index++) {
+    const btn = buttons[index];
+    btn.addEventListener('click', function (){
+        var idBtn = document.getElementsByClassName('navBtn')[index].id;
+        var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 170;
+        var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
+        window.scrollTo(offsetLeft, offsetTop);
+    }) 
+}
+
+console.log(document.getElementsByTagName('div'))
