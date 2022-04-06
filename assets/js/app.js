@@ -70,3 +70,10 @@ function createElement(typeElement, elementID, elementIDPosition, elementClass, 
 // Footer
 
 document.getElementById('main').appendChild(document.createElement('footer'));
+window.addEventListener('keypress', function(){
+    var test = document.getElementById('nowPlayingsTitle').offsetTop - 150
+    console.log(test);
+    var test2 = document.getElementById('nowPlayingsTitle').offsetLeft
+    console.log(test2);
+    window.scrollTo(test2, test)
+})
