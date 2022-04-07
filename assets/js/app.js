@@ -12,7 +12,7 @@ createElement('div', 'mobileNav', 'header', '','','');
 createElement('div', 'topMobileNav', 'mobileNav', '','','');
 createElement('img','','topMobileNav','logoMobileNav','assets/img/allojyve_logo.png','')
 createElement('i', 'menuBurger', 'topMobileNav', 'fa-solid fa-bars fa-5x','','');
-createElement('div', 'menuMobile', 'mobileNav', 'none','','');
+createElement('div', 'menuMobile', 'mobileNav', '','','');
 createElement('div', 'firstRow', 'menuMobile', '','','');
 createElement('img','','firstRow','logoMobileNav','assets/img/allojyve_logo.png','')
 createElement('i', 'closeMenu', 'firstRow', 'fa-solid fa-xmark fa-5x','','');
@@ -44,8 +44,9 @@ document.getElementById('menuBurger').addEventListener('click', function(){
 })
 
 document.getElementById('closeMenu').addEventListener('click', function(){
-    document.getElementById('topMobileNav').classList.remove('none')
-    document.getElementById('menuMobile').classList.add('none')
+    document.getElementById('topMobileNav').classList.remove('close')
+    document.getElementById('menuMobile').classList.remove('open')
+    document.getElementById('menuMobile').classList.add('close')
 })
 
 // test du click to move
