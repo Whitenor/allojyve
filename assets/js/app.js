@@ -8,7 +8,7 @@ createElement('p','upcoming', 'nav','navBtn','','Prochainement');
 createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche');
 createElement('p','popular', 'nav','navBtn','','Populaires');
 
-createElement('div', 'mobileNav', 'header', '','','');
+createElement('div', 'mobileNav', 'header', 'test','','');
 createElement('div', 'topMobileNav', 'mobileNav', '','','');
 createElement('img','','topMobileNav','logoMobileNav','assets/img/allojyve_logo.png','')
 createElement('i', 'menuBurger', 'topMobileNav', 'fa-solid fa-bars fa-5x','','');
@@ -39,8 +39,7 @@ getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcom
 document.getElementById('main').appendChild(document.createElement('footer'));
  
 document.getElementById('menuBurger').addEventListener('click', function(){
-
-    document.getElementById('menuMobile').classList.remove('close')
+    document.getElementById('mobileNav').classList.remove('test')
     document.getElementById('menuMobile').classList.add('open')
     setTimeout(() => {
         document.getElementById('topMobileNav').classList.add('close')
@@ -49,10 +48,14 @@ document.getElementById('menuBurger').addEventListener('click', function(){
 })
 
 document.getElementById('closeMenu').addEventListener('click', function(){
+    document.getElementById('mobileNav').classList.add('test')
+
+    setTimeout(() => {
+        document.getElementById('menuBurger').classList.remove('none')
+    }, 200);
     document.getElementById('topMobileNav').classList.remove('close')
     document.getElementById('menuBurger').classList.remove('none')
     document.getElementById('menuMobile').classList.remove('open')
-    document.getElementById('menuMobile').classList.add('close')
 })
 
 // test du click to move
