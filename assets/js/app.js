@@ -16,6 +16,7 @@ createElement('div', 'menuMobile', 'mobileNav', '','','');
 createElement('div', 'firstRow', 'menuMobile', '','','');
 createElement('img','','firstRow','logoMobileNav','assets/img/allojyve_logo.png','')
 createElement('i', 'closeMenu', 'firstRow', 'fa-solid fa-xmark fa-5x','','');
+createElement('div','linkTo','menuMobile','','','')
 createElement('div', 'upcoming', 'menuMobile', 'mobileNavBtn','','Prochainement');
 createElement('div', 'nowPlayings', 'menuMobile', 'mobileNavBtn','','À l\'affiche');
 createElement('div', 'popular', 'menuMobile', 'mobileNavBtn','','Populaires');
