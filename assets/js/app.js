@@ -15,7 +15,7 @@ createElement('i', 'menuBurger', 'topMobileNav', 'fa-solid fa-bars fa-5x','','')
 createElement('div', 'menuMobile', 'mobileNav', 'none','','');
 createElement('div', 'firstRow', 'menuMobile', '','','');
 createElement('img','','firstRow','logoMobileNav','assets/img/allojyve_logo.png','')
-createElement('i', '', 'firstRow', 'fa-solid fa-xmark fa-5x','','');
+createElement('i', 'closeMenu', 'firstRow', 'fa-solid fa-xmark fa-5x','','');
 createElement('div', 'upcoming', 'menuMobile', 'mobileNavBtn','','Prochainement');
 createElement('div', 'nowPlayings', 'menuMobile', 'mobileNavBtn','','À l\'affiche');
 createElement('div', 'popular', 'menuMobile', 'mobileNavBtn','','Populaires');
@@ -38,8 +38,14 @@ getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcom
 document.getElementById('main').appendChild(document.createElement('footer'));
  
 document.getElementById('menuBurger').addEventListener('click', function(){
-    document.getElementById('topMobileNav').classList.add('none')
-    document.getElementById('menuMobile').classList.remove('none')
+    document.getElementById('topMobileNav').classList.add('close')
+    document.getElementById('menuMobile').classList.remove('close')
+    document.getElementById('menuMobile').classList.add('open')
+})
+
+document.getElementById('closeMenu').addEventListener('click', function(){
+    document.getElementById('topMobileNav').classList.remove('none')
+    document.getElementById('menuMobile').classList.add('none')
 })
 
 // test du click to move
