@@ -43,11 +43,13 @@ document.getElementById('menuBurger').addEventListener('click', function(){
     document.getElementById('menuMobile').classList.add('open')
     setTimeout(() => {
         document.getElementById('topMobileNav').classList.add('close')
+        document.getElementById('menuBurger').classList.add('none')
     }, 260);
 })
 
 document.getElementById('closeMenu').addEventListener('click', function(){
     document.getElementById('topMobileNav').classList.remove('close')
+    document.getElementById('menuBurger').classList.remove('none')
     document.getElementById('menuMobile').classList.remove('open')
     document.getElementById('menuMobile').classList.add('close')
 })
