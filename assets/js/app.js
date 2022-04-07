@@ -43,7 +43,7 @@ document.getElementById('menuBurger').addEventListener('click', function(){
     document.getElementById('menuMobile').classList.add('open')
     setTimeout(() => {
         document.getElementById('topMobileNav').classList.add('close')
-    }, 20);
+    }, 260);
 })
 
 document.getElementById('closeMenu').addEventListener('click', function(){
