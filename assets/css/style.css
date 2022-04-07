@@ -162,6 +162,7 @@ h2{
 }
 .open{
   width: 90% !important;
+  padding-left: 5vw;
 }
 
 #mobileNav{
@@ -190,7 +191,6 @@ h2{
   background-color: white;
   transition: all 0.2s ease 0s;
   overflow: hidden;
-  padding-left: 5vw;
 }
 .logoMobileNav{
   height: 178px;

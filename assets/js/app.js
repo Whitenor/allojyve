@@ -38,9 +38,12 @@ getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcom
 document.getElementById('main').appendChild(document.createElement('footer'));
  
 document.getElementById('menuBurger').addEventListener('click', function(){
-    document.getElementById('topMobileNav').classList.add('close')
+
     document.getElementById('menuMobile').classList.remove('close')
     document.getElementById('menuMobile').classList.add('open')
+    setTimeout(() => {
+        document.getElementById('topMobileNav').classList.add('close')
+    }, 20);
 })
 
 document.getElementById('closeMenu').addEventListener('click', function(){
