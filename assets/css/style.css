@@ -190,8 +190,17 @@ h2{
   background-color: white;
   transition: all 0.2s ease 0s;
   overflow: hidden;
+  padding-left: 5vw;
 }
-
+.logoMobileNav{
+  height: 178px;
+  width: auto;
+}
+#firstRow{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 @media screen and (max-width: 1024px) {
   #nav {
     display: none;
@@ -199,10 +208,6 @@ h2{
   #mobileNav{
     display: flex;
     flex-direction: column;
-  }
-  .logoMobileNav{
-    height: 178px;
-    width: auto;
   }
   #allSlider{
     padding-top: 10vh;
