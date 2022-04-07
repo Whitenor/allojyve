@@ -22,6 +22,9 @@ h2{
 .none{
     display: none !important;
 }
+.transparent{
+  color: transparent;
+}
 
 
 
@@ -204,7 +207,7 @@ h2{
 
 
 
-.test{
+.heightMobileNav{
   height: 20vh;
 }
 

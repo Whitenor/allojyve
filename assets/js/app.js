@@ -8,7 +8,7 @@ createElement('p','upcoming', 'nav','navBtn','','Prochainement');
 createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche');
 createElement('p','popular', 'nav','navBtn','','Populaires');
 
-createElement('div', 'mobileNav', 'header', 'test','','');
+createElement('div', 'mobileNav', 'header', 'heightMobileNav','','');
 createElement('div', 'topMobileNav', 'mobileNav', '','','');
 createElement('img','','topMobileNav','logoMobileNav','assets/img/allojyve_logo.png','')
 createElement('i', 'menuBurger', 'topMobileNav', 'fa-solid fa-bars fa-5x','','');
@@ -39,22 +39,22 @@ getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcom
 document.getElementById('main').appendChild(document.createElement('footer'));
  
 document.getElementById('menuBurger').addEventListener('click', function(){
-    document.getElementById('mobileNav').classList.remove('test')
+    document.getElementById('mobileNav').classList.remove('heightMobileNav')
     document.getElementById('menuMobile').classList.add('open')
+    document.getElementById('menuBurger').classList.add('transparent')
     setTimeout(() => {
         document.getElementById('topMobileNav').classList.add('close')
-        document.getElementById('menuBurger').classList.add('none')
+        
     }, 260);
 })
 
 document.getElementById('closeMenu').addEventListener('click', function(){
-    document.getElementById('mobileNav').classList.add('test')
+    document.getElementById('mobileNav').classList.add('heightMobileNav')
 
     setTimeout(() => {
-        document.getElementById('menuBurger').classList.remove('none')
+        document.getElementById('menuBurger').classList.remove('transparent')
     }, 200);
     document.getElementById('topMobileNav').classList.remove('close')
-    document.getElementById('menuBurger').classList.remove('none')
     document.getElementById('menuMobile').classList.remove('open')
 })
 
