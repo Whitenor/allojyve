@@ -165,7 +165,7 @@ h2{
 }
 .open{
   width: 90% !important;
-  padding-left: 5vw;
+  padding-left: 10vw;
 }
 
 #mobileNav{
@@ -204,8 +204,35 @@ h2{
   justify-content: space-between;
   align-items: center;
 }
-
-
+#linkTo{
+  height: 40vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10vh 0;
+  border-top: solid black 9px;
+  border-bottom: solid black 9px;
+}
+#linkTo > div {
+  font-size: 2rem;
+}
+#socialsNavTop{
+  padding: 10vh 0;
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+}
+#socialsNavTop > h3 {
+  font-size: 2rem;
+}
+#socialsLinkTop{
+  margin-top: 5vh;
+  width: 35vw;
+}
+.fa-brands{
+  margin: 0 20px 0 0;
+}
 
 .heightMobileNav{
   height: 20vh;

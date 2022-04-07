@@ -17,9 +17,15 @@ createElement('div', 'firstRow', 'menuMobile', '','','');
 createElement('img','','firstRow','logoMobileNav','assets/img/allojyve_logo.png','')
 createElement('i', 'closeMenu', 'firstRow', 'fa-solid fa-xmark fa-5x','','');
 createElement('div','linkTo','menuMobile','','','')
-createElement('div', 'upcoming', 'menuMobile', 'mobileNavBtn','','Prochainement');
-createElement('div', 'nowPlayings', 'menuMobile', 'mobileNavBtn','','À l\'affiche');
-createElement('div', 'popular', 'menuMobile', 'mobileNavBtn','','Populaires');
+createElement('div', 'upcoming', 'linkTo', 'mobileNavBtn','','Prochainement');
+createElement('div', 'nowPlayings', 'linkTo', 'mobileNavBtn','','À l\'affiche');
+createElement('div', 'popular', 'linkTo', 'mobileNavBtn','','Populaires');
+createElement('div', 'socialsNavTop','menuMobile','','','')
+createElement('h3', 'titleSocialsTop','socialsNavTop','','','Suivez-nous !')
+createElement('div', 'socialsLinkTop','socialsNavTop','','','')
+createElement('i', 'facebookNavTop', 'socialsLinkTop','fa-brands fa-facebook-square fa-3x','')
+createElement('i', 'twitterNavTop', 'socialsLinkTop','fa-brands fa-twitter fa-3x','')
+createElement('i', 'instagramNavTop', 'socialsLinkTop','fa-brands fa-instagram fa-3x','')
 
 
 // Contenu Principal
