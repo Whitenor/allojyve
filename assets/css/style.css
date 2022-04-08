@@ -211,8 +211,8 @@ h2{
   flex-direction: column;
   justify-content: space-between;
   padding: 10vh 0;
-  border-top: solid black 9px;
-  border-bottom: solid black 9px;
+  border-top: solid black 5px;
+  border-bottom: solid black 5px;
 }
 #linkTo > div {
   font-size: 2rem;

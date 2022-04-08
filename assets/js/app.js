@@ -51,12 +51,11 @@ document.getElementById('menuBurger').addEventListener('click', function(){
     setTimeout(() => {
         document.getElementById('topMobileNav').classList.add('close')
         
-    }, 260);
+    }, 500);
 })
 
 document.getElementById('closeMenu').addEventListener('click', function(){
     document.getElementById('mobileNav').classList.add('heightMobileNav')
-
     setTimeout(() => {
         document.getElementById('menuBurger').classList.remove('transparent')
     }, 200);
@@ -84,6 +83,13 @@ for (let index = 0; index < mobileButtons.length; index++) {
         var offsetTop = document.getElementById(idBtn + 'Title').offsetTop - 180;
         var offsetLeft = document.getElementById(idBtn + 'Title').offsetLeft;
         window.scrollTo(offsetLeft, offsetTop);
+
+        document.getElementById('mobileNav').classList.add('heightMobileNav')
+        setTimeout(() => {
+            document.getElementById('menuBurger').classList.remove('transparent')
+        }, 200);
+        document.getElementById('topMobileNav').classList.remove('close')
+        document.getElementById('menuMobile').classList.remove('open')
     }) 
 }
 function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
