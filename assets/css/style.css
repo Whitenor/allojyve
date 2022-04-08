@@ -273,6 +273,35 @@ h2 {
   height: 19vh;
 }
 
+#footer{
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+#footer > * {
+  color: white;
+}
+#logoCopy{
+  margin: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#logoFooter{
+  height: 15vh;
+  width: auto;
+}
+#legals{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#legals > h3 {
+  font-size: 36px;
+}
 
 
 
