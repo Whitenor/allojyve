@@ -133,3 +133,11 @@ function createElement(typeElement, elementID, elementIDPosition, elementClass, 
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDPosition).appendChild(createElement);
 }
+
+if (window.innerWidth) {
+    document.getElementById('closeMenu').classList.remove('fa-5x')
+    document.getElementById('menuBurger').classList.remove('fa-5x')
+    document.getElementById('closeMenu').classList.add('fa-3x')
+    document.getElementById('menuBurger').classList.add('fa-3x')
+
+}
