@@ -355,12 +355,6 @@ h2 {
 
 
 @media screen and (max-width: 1024px) {
-  #menuBurger,
-  #closeMenu,
-  #linkTo{
-    cursor: pointer;
-  }
- 
   #nav {
     display: none;
   }
@@ -377,6 +371,28 @@ h2 {
   .sliderTitle {
     font-size: 53px;
   }
+
+  #footer{
+ flex-direction: column;
+  }
+
+  #logoCopy{
+    margin-top: 40px;
+    padding-bottom: 40px;
+    border-top: #ffffff solid 2px;
+    border-bottom: #ffffff solid 2px;
+    border-left: none;
+    border-right: none;
+  }
+  #legals{
+  margin-top:40px;
+  margin-bottom: 40px;
+  }
+
+  #socialsFooter{
+   margin-top: 40px;
+  }
+
 }
 
 
