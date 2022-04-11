@@ -88,11 +88,7 @@ document.getElementById('closeMenu').addEventListener('click', function(){
     document.getElementById('menuMobile').classList.remove('open');
 })
 
-
-
-
 // Footer
-
 
 createElement('footer','footer','main','','','');
 createElement('div','socialsFooter','footer','','','');
@@ -109,13 +105,6 @@ createElement('h3','mentionsLegals', 'legals','','','Mentions Légales');
 createElement('p','cgu', 'legals','','','CGU');
 createElement('p','cookiePolicy', 'legals','','','Politique de cookies');
 createElement('p','rgpd', 'legals','','','Réglement RGPD');
-
-
-
-
-
-
-
 
 // test du click to move
 
