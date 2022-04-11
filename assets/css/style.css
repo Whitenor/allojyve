@@ -283,6 +283,15 @@ h2 {
 #footer > * {
   color: white;
 }
+#socialsFooter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#socialsLinkFooter{
+  margin-top: 10px;
+}
 #logoCopy{
   margin: 0 40px;
   display: flex;

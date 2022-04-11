@@ -165,5 +165,4 @@ if (window.innerWidth) {
     document.getElementById('menuBurger').classList.remove('fa-5x')
     document.getElementById('closeMenu').classList.add('fa-3x')
     document.getElementById('menuBurger').classList.add('fa-3x')
-
 }
