@@ -1,31 +1,60 @@
+const schema = [
+    {'type':'header','id':'header','position':'main','classes':'','src':'','textContent':''},
+    {'type':'h1','id':'h1','position':'header','classes':'none','src':'','textContent':'Allojyvé'},
+    {'type':'nav','id':'nav','position':'header','classes':'','src':'','textContent':''},
+    {'type':'img','id':'logoNav','position':'nav','classes':'','src':'assets/img/allojyve_logo.png','textContent':''},
+    {'type':'p','id':'upcoming','position':'nav','classes':'navBtn','src':'','textContent':'Prochainement'},
+    {'type':'p','id':'nowPlayings','position':'nav','classes':'navBtn','src':'','textContent':'À l\'affiche'},
+    {'type':'p','id':'popular','position':'nav','classes':'navBtn','src':'','textContent':'Populaires'},
+    {'type':'div','id':'mobileNav','position':'header','classes':'heightMobileNav','src':'','textContent':''},
+    {'type':'div','id':'topMobileNav','position':'mobileNav','classes':'','src':'','textContent':''},
+    {'type':'img','id':'','position':'topMobileNav','classes':'logoMobileNav','src':'assets/img/allojyve_logo.png','textContent':''},
+    {'type':'i','id':'menuBurger','position':'topMobileNav','classes':'fa-solid fa-bars fa-5x','src':'','textContent':''},
+    {'type':'div','id':'menuMobile','position':'mobileNav','classes':'','src':'','textContent':''},
+    {'type':'div','id':'firstRow','position':'menuMobile','classes':'','src':'','textContent':''},
+    {'type':'img','id':'','position':'firstRow','classes':'logoMobileNav','src':'assets/img/allojyve_logo.png','textContent':''},
+    {'type':'i','id':'closeMenu','position':'firstRow','classes':'fa-solid fa-xmark fa-5x','src':'','textContent':''},
+    {'type':'div','id':'linkTo','position':'menuMobile','classes':'','src':'','textContent':''},
+    {'type':'div','id':'upcoming','position':'linkTo','classes':'mobileNavBtn','src':'','textContent':'Prochainement'},
+    {'type':'div','id':'nowPlayings','position':'linkTo','classes':'mobileNavBtn','src':'','textContent':'À l\'affiche'},
+    {'type':'div','id':'popular','position':'linkTo','classes':'mobileNavBtn','src':'','textContent':'Populaires'},
+    {'type':'div','id':'socialsNavTop','position':'menuMobile','classes':'','src':'','textContent':''},
+    {'type':'h3','id':'titleSocialsTop','position':'socialsNavTop','classes':'','src':'','textContent':'Suivez-nous!'},
+    {'type':'div','id':'socialsLinkTop','position':'socialsNavTop','classes':'','src':'','textContent':''},
+    {'type':'i','id':'facebookNavTop','position':'socialsLinkTop','classes':'fa-brands','src':'fa-facebook-square fa-3x','textContent':''},
+    {'type':'i','id':'twitterNavTop','position':'socialsLinkTop','classes':'fa-brands fa-twitter fa-3x','src':'','textContent':''},
+    {'type':'i','id':'instagramNavTop','position':'socialsLinkTop','classes':'fa-brands fa-instagram fa-3x','src':'','textContent':''},
+
+]
+for (let i = 0; i < schema.length; i++) {
+    createElement(schema[i].type, schema[i].id, schema[i].position, schema[i].classes, schema[i].src, schema[i].textContent)
+}
 // Header
-createElement('header','header','main','','','');
-createElement('h1','h1','header','none','','AlloJyvé');
-
-createElement('nav','nav','header','','','');
-createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','');
-createElement('p','upcoming', 'nav','navBtn','','Prochainement');
-createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche');
-createElement('p','popular', 'nav','navBtn','','Populaires');
-
-createElement('div', 'mobileNav', 'header', 'heightMobileNav','','');
-createElement('div', 'topMobileNav', 'mobileNav', '','','');
-createElement('img','','topMobileNav','logoMobileNav','assets/img/allojyve_logo.png','');
-createElement('i', 'menuBurger', 'topMobileNav', 'fa-solid fa-bars fa-5x','','');
-createElement('div', 'menuMobile', 'mobileNav', '','','');
-createElement('div', 'firstRow', 'menuMobile', '','','');
-createElement('img','','firstRow','logoMobileNav','assets/img/allojyve_logo.png','');
-createElement('i', 'closeMenu', 'firstRow', 'fa-solid fa-xmark fa-5x','','');
-createElement('div','linkTo','menuMobile','','','');
-createElement('div', 'upcoming', 'linkTo', 'mobileNavBtn','','Prochainement');
-createElement('div', 'nowPlayings', 'linkTo', 'mobileNavBtn','','À l\'affiche');
-createElement('div', 'popular', 'linkTo', 'mobileNavBtn','','Populaires');
-createElement('div', 'socialsNavTop','menuMobile','','','');
-createElement('h3', 'titleSocialsTop','socialsNavTop','','','Suivez-nous !');
-createElement('div', 'socialsLinkTop','socialsNavTop','','','');
-createElement('i', 'facebookNavTop', 'socialsLinkTop','fa-brands fa-facebook-square fa-3x','','');
-createElement('i', 'twitterNavTop', 'socialsLinkTop','fa-brands fa-twitter fa-3x','','');
-createElement('i', 'instagramNavTop', 'socialsLinkTop','fa-brands fa-instagram fa-3x','','');
+// createElement('header','header','main','','','');
+// createElement('h1','h1','header','none','','AlloJyvé');
+// createElement('nav','nav','header','','','');
+// createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','');
+// createElement('p','upcoming', 'nav','navBtn','','Prochainement');
+// createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche');
+// createElement('p','popular', 'nav','navBtn','','Populaires');
+// createElement('div', 'mobileNav', 'header', 'heightMobileNav','','');
+// createElement('div', 'topMobileNav', 'mobileNav', '','','');
+// createElement('img','','topMobileNav','logoMobileNav','assets/img/allojyve_logo.png','');
+// createElement('i', 'menuBurger', 'topMobileNav', 'fa-solid fa-bars fa-5x','','');
+// createElement('div', 'menuMobile', 'mobileNav', '','','');
+// createElement('div', 'firstRow', 'menuMobile', '','','');
+// createElement('img','','firstRow','logoMobileNav','assets/img/allojyve_logo.png','');
+// createElement('i', 'closeMenu', 'firstRow', 'fa-solid fa-xmark fa-5x','','');
+// createElement('div','linkTo','menuMobile','','','');
+// createElement('div', 'upcoming', 'linkTo', 'mobileNavBtn','','Prochainement');
+// createElement('div', 'nowPlayings', 'linkTo', 'mobileNavBtn','','À l\'affiche');
+// createElement('div', 'popular', 'linkTo', 'mobileNavBtn','','Populaires');
+// createElement('div', 'socialsNavTop','menuMobile','','','');
+// createElement('h3', 'titleSocialsTop','socialsNavTop','','','Suivez-nous !');
+// createElement('div', 'socialsLinkTop','socialsNavTop','','','');
+// createElement('i', 'facebookNavTop', 'socialsLinkTop','fa-brands fa-facebook-square fa-3x','','');
+// createElement('i', 'twitterNavTop', 'socialsLinkTop','fa-brands fa-twitter fa-3x','','');
+// createElement('i', 'instagramNavTop', 'socialsLinkTop','fa-brands fa-instagram fa-3x','','');
 
 
 // Contenu Principal
@@ -151,13 +180,13 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
     });
 }
 
-function createElement(typeElement, elementID, elementIDPosition, elementClass, elementSrc, elementTextContent){
+function createElement(typeElement, elementID, elementIDLocation, elementClass, elementSrc, elementTextContent){
     var createElement = document.createElement(typeElement);
     createElement.id = elementID;
     createElement.classList = elementClass;
     createElement.src = elementSrc;
     createElement.textContent = elementTextContent;
-    document.getElementById(elementIDPosition).appendChild(createElement);
+    document.getElementById(elementIDLocation).appendChild(createElement);
 }
 
 if (window.innerWidth) {
