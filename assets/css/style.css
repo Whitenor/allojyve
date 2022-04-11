@@ -288,6 +288,8 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-left: #ffffff solid 2px;
+  border-right: #ffffff solid 2px;
 }
 #logoFooter{
   height: 15vh;
@@ -302,6 +304,30 @@ h2 {
 #legals > h3 {
   font-size: 36px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
