@@ -1,9 +1,10 @@
-var lastVisitUpcoming = JSON.parse(localStorage.getItem('upcoming'));
-var lastVisitNowPlaying = JSON.parse(localStorage.getItem('now_playing'));
-var lastVisitPopular = JSON.parse(localStorage.getItem('popular'));
-console.log(lastVisitUpcoming);
-console.log(lastVisitNowPlaying);
-console.log(lastVisitPopular);
+var lastVisitUpcomingID = JSON.parse(localStorage.getItem('upcoming'));
+var lastVisitNowPlayingID = JSON.parse(localStorage.getItem('now_playing'));
+var lastVisitPopularID = JSON.parse(localStorage.getItem('popular'));
+console.log(lastVisitUpcomingID);
+console.log(lastVisitNowPlayingID);
+console.log(lastVisitPopularID);
+
 const schema = [
     {'type':'header','id':'header','position':'main','classes':'','src':'','textContent':''},
     {'type':'h1','id':'h1','position':'header','classes':'none','src':'','textContent':'Allojyvé'},
