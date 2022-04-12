@@ -24,18 +24,31 @@ const schema = [
     {'type':'i','id':'facebookNavTop','position':'socialsLinkTop','classes':'fa-brands fa-facebook-square fa-3x','src':'fa-facebook-square fa-3x','textContent':''},
     {'type':'i','id':'twitterNavTop','position':'socialsLinkTop','classes':'fa-brands fa-twitter fa-3x','src':'','textContent':''},
     {'type':'i','id':'instagramNavTop','position':'socialsLinkTop','classes':'fa-brands fa-instagram fa-3x','src':'','textContent':''},
-
+    {'type':'div','id':'mainContent','position':'main','classes':'','src':'','textContent':''},    
+    {'type':'div','id':'leftCol','position':'mainContent','classes':'','src':'','textContent':''},
+    {'type':'div','id':'allSlider','position':'mainContent','classes':'','src':'','textContent':''},
+    {'type':'div','id':'rightCol','position':'mainContent','classes':'','src':'','textContent':''},
+    {'type':'footer','id':'footer','position':'main','classes':'','src':'','textContent':''},
+    {'type':'div','id':'socialsFooter','position':'footer','classes':'','src':'','textContent':''},
+    {'type':'div','id':'logoCopy','position':'footer','classes':'','src':'','textContent':''},
+    {'type':'div','id':'legals','position':'footer','classes':'','src':'','textContent':''},
+    {'type':'h3','id':'titleSocialsFooter','position':'socialsFooter','classes':'','src':'','textContent':'Suivez-nous !'},
+    {'type':'div','id':'socialsLinkFooter','position':'socialsFooter','classes':'','src':'','textContent':''},
+    {'type':'i','id':'facebookFooter','position':'socialsLinkFooter','classes':'fa-brands fa-facebook-square fa-3x','src':'','textContent':''},
+    {'type':'i','id':'twitterFooter','position':'socialsLinkFooter','classes':'fa-brands fa-twitter fa-3x','src':'','textContent':''},
+    {'type':'i','id':'instagramFooter','position':'socialsLinkFooter','classes':'fa-brands fa-instagram fa-3x','src':'','textContent':''},
+    {'type':'img','id':'logoFooter','position':'logoCopy','classes':'','src':'assets/img/allojyve_logo_white.png','textContent':''},
+    {'type':'p','id':'copyright','position':'logoCopy','classes':'','src':'','textContent':'Copyright \u00a9 - Allojyvé 2022'},
+    {'type':'h3','id':'mentionsLegals','position':'legals','classes':'','src':'','textContent':'Mentions Légales'},
+    {'type':'p','id':'cgu','position':'legals','classes':'','src':'','textContent':'CGU'},
+    {'type':'p','id':'cookiePolicy','position':'legals','classes':'','src':'','textContent':'Politiques de cookies'},
+    {'type':'p','id':'rgpd','position':'legals','classes':'','src':'','textContent':'Réglement RGPD'}
 ]
 for (let i = 0; i < schema.length; i++) {
     createElement(schema[i].type, schema[i].id, schema[i].position, schema[i].classes, schema[i].src, schema[i].textContent)
 }
 
 // Contenu Principal
-
-createElement('div','mainContent', 'main','','','');
-createElement('div','leftCol', 'mainContent','','','');
-createElement('div','allSlider', 'mainContent','','','');
-createElement('div','rightCol', 'mainContent','','','');
 
 getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcoming').then(res => {
     getList('now_playing','À l\'affiche','nowPlayingsTitle', 'nowPlayingSlide', 'cardNowPlaying');
@@ -63,21 +76,7 @@ document.getElementById('closeMenu').addEventListener('click', function(){
 
 // Footer
 
-createElement('footer','footer','main','','','');
-createElement('div','socialsFooter','footer','','','');
-createElement('div','logoCopy','footer','','','');
-createElement('div','legals','footer','','','');
-createElement('h3', 'titleSocialsFooter','socialsFooter','','','Suivez-nous !');
-createElement('div', 'socialsLinkFooter','socialsFooter','','','');
-createElement('i', 'facebookFooter', 'socialsLinkFooter','fa-brands fa-facebook-square fa-3x','','');
-createElement('i', 'twitterFooter', 'socialsLinkFooter','fa-brands fa-twitter fa-3x','','');
-createElement('i', 'instagramFooter', 'socialsLinkFooter','fa-brands fa-instagram fa-3x','','');
-createElement('img','logoFooter','logoCopy','','assets/img/allojyve_logo_white.png','');
-createElement('p','copyrigh', 'logoCopy','','','Copyright ' + '\u00a9'+ ' - AlloJyvé 2022');
-createElement('h3','mentionsLegals', 'legals','','','Mentions Légales');
-createElement('p','cgu', 'legals','','','CGU');
-createElement('p','cookiePolicy', 'legals','','','Politique de cookies');
-createElement('p','rgpd', 'legals','','','Réglement RGPD');
+
 
 // test du click to move
 
