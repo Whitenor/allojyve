@@ -1,3 +1,8 @@
+localStorage.setItem('idFilm', '')
+// var names = [];
+// names[0] = prompt("New member name?");
+// localStorage.setItem("names", JSON.stringify(names));
+// console.log(JSON.parse(localStorage.getItem("names")));
 const schema = [
     {'type':'header','id':'header','position':'main','classes':'','src':'','textContent':''},
     {'type':'h1','id':'h1','position':'header','classes':'none','src':'','textContent':'Allojyvé'},
@@ -114,11 +119,13 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                 Slide.id = sliderID;
                 Slide.classList = 'slider';
                 document.getElementById('allSlider').appendChild(Slide)
+                var testArray = []
                 res.json().then(response => {
                     console.log(response);
                     for (i = 0; i < 20; i++) {
                         var card = document.createElement('div');
                         card.classList = 'card '+cardClassSpec;
+                        card.id = response.results[i].id
                         document.getElementById(sliderID).appendChild(card);
                         var img = document.createElement('img');
                         img.classList = 'imgSlider';
@@ -127,7 +134,10 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                         var title = document.createElement('div');
                         title.textContent = response.results[i].title;
                         document.getElementsByClassName(cardClassSpec)[i].appendChild(title);
+                        testArray[i] = response.results[i].id;
+                        localStorage.setItem( listName, JSON.stringify(testArray));
                     }
+                    console.log(JSON.parse(localStorage.getItem(listName)));
                     resolve();
                 })
             }
