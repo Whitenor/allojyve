@@ -29,33 +29,6 @@ const schema = [
 for (let i = 0; i < schema.length; i++) {
     createElement(schema[i].type, schema[i].id, schema[i].position, schema[i].classes, schema[i].src, schema[i].textContent)
 }
-// Header
-// createElement('header','header','main','','','');
-// createElement('h1','h1','header','none','','AlloJyvé');
-// createElement('nav','nav','header','','','');
-// createElement('img','logoNav','nav','','assets/img/allojyve_logo.png','');
-// createElement('p','upcoming', 'nav','navBtn','','Prochainement');
-// createElement('p','nowPlayings', 'nav','navBtn','','À l\'affiche');
-// createElement('p','popular', 'nav','navBtn','','Populaires');
-// createElement('div', 'mobileNav', 'header', 'heightMobileNav','','');
-// createElement('div', 'topMobileNav', 'mobileNav', '','','');
-// createElement('img','','topMobileNav','logoMobileNav','assets/img/allojyve_logo.png','');
-// createElement('i', 'menuBurger', 'topMobileNav', 'fa-solid fa-bars fa-5x','','');
-// createElement('div', 'menuMobile', 'mobileNav', '','','');
-// createElement('div', 'firstRow', 'menuMobile', '','','');
-// createElement('img','','firstRow','logoMobileNav','assets/img/allojyve_logo.png','');
-// createElement('i', 'closeMenu', 'firstRow', 'fa-solid fa-xmark fa-5x','','');
-// createElement('div','linkTo','menuMobile','','','');
-// createElement('div', 'upcoming', 'linkTo', 'mobileNavBtn','','Prochainement');
-// createElement('div', 'nowPlayings', 'linkTo', 'mobileNavBtn','','À l\'affiche');
-// createElement('div', 'popular', 'linkTo', 'mobileNavBtn','','Populaires');
-// createElement('div', 'socialsNavTop','menuMobile','','','');
-// createElement('h3', 'titleSocialsTop','socialsNavTop','','','Suivez-nous !');
-// createElement('div', 'socialsLinkTop','socialsNavTop','','','');
-// createElement('i', 'facebookNavTop', 'socialsLinkTop','fa-brands fa-facebook-square fa-3x','','');
-// createElement('i', 'twitterNavTop', 'socialsLinkTop','fa-brands fa-twitter fa-3x','','');
-// createElement('i', 'instagramNavTop', 'socialsLinkTop','fa-brands fa-instagram fa-3x','','');
-
 
 // Contenu Principal
 
