@@ -74,12 +74,6 @@ document.getElementById('closeMenu').addEventListener('click', function(){
     document.getElementById('menuMobile').classList.remove('open');
 })
 
-// Footer
-
-
-
-// test du click to move
-
 var buttons = document.getElementsByClassName('navBtn');
 for (let index = 0; index < buttons.length; index++) {
     const btn = buttons[index];
