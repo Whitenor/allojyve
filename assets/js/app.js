@@ -21,7 +21,7 @@ const schema = [
     {'type':'div','id':'socialsNavTop','position':'menuMobile','classes':'','src':'','textContent':''},
     {'type':'h3','id':'titleSocialsTop','position':'socialsNavTop','classes':'','src':'','textContent':'Suivez-nous!'},
     {'type':'div','id':'socialsLinkTop','position':'socialsNavTop','classes':'','src':'','textContent':''},
-    {'type':'i','id':'facebookNavTop','position':'socialsLinkTop','classes':'fa-brands','src':'fa-facebook-square fa-3x','textContent':''},
+    {'type':'i','id':'facebookNavTop','position':'socialsLinkTop','classes':'fa-brands fa-facebook-square fa-3x','src':'fa-facebook-square fa-3x','textContent':''},
     {'type':'i','id':'twitterNavTop','position':'socialsLinkTop','classes':'fa-brands fa-twitter fa-3x','src':'','textContent':''},
     {'type':'i','id':'instagramNavTop','position':'socialsLinkTop','classes':'fa-brands fa-instagram fa-3x','src':'','textContent':''},
 
@@ -176,11 +176,4 @@ function createElement(typeElement, elementID, elementIDLocation, elementClass, 
     createElement.src = elementSrc;
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDLocation).appendChild(createElement);
-}
-
-if (window.innerWidth) {
-    document.getElementById('closeMenu').classList.remove('fa-5x')
-    document.getElementById('menuBurger').classList.remove('fa-5x')
-    document.getElementById('closeMenu').classList.add('fa-3x')
-    document.getElementById('menuBurger').classList.add('fa-3x')
 }
