@@ -1,9 +1,15 @@
-var lastVisitUpcomingID = JSON.parse(localStorage.getItem('upcoming'));
-var lastVisitNowPlayingID = JSON.parse(localStorage.getItem('now_playing'));
-var lastVisitPopularID = JSON.parse(localStorage.getItem('popular'));
-// console.log(lastVisitUpcomingID);
-// console.log(lastVisitNowPlayingID);
-// console.log(lastVisitPopularID);
+const pastList = [
+    {'listName': 'upcoming', 'pastID':JSON.parse(localStorage.getItem('upcoming'))},
+    {'listName': 'now_playing', 'pastID':JSON.parse(localStorage.getItem('now_playing'))},
+    {'listName': 'popular', 'pastID':JSON.parse(localStorage.getItem('popular'))},
+]
+console.log(pastList)
+var x = 0
+var listActual = [
+    {'listName' : 'upcoming', 'actualID':[], 'title':[]},
+    {'listName' : 'now_playing', 'actualID':[], 'title':[]},
+    {'listName' : 'popular', 'actualID':[], 'title':[]}
+]
 
 const schema = [
     {'type':'header','id':'header','position':'main','classes':'','src':'','textContent':''},
@@ -120,10 +126,9 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                 var Slide = document.createElement('div');
                 Slide.id = sliderID;
                 Slide.classList = 'slider';
-                document.getElementById('allSlider').appendChild(Slide)
-                var listArray = []
+                document.getElementById('allSlider').appendChild(Slide);
+                var listArray = [];
                 res.json().then(response => {
-                    console.log(response);
                     for (i = 0; i < 20; i++) {
                         var card = document.createElement('div');
                         card.classList = 'card '+cardClassSpec;
@@ -160,14 +165,17 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                                 }
                             })
                         })
-                        
+                        listActual[x].actualID[i] = response.results[i].id;
+                        listActual[x].title[i] = response.results[i].title;
                     }
                     resolve();
+                    x++;
                 })
             }
         })
     });
 }
+console.log(listActual)
 
 function createElement(typeElement, elementID, elementIDLocation, elementClass, elementSrc, elementTextContent){
     var createElement = document.createElement(typeElement);
