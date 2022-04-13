@@ -154,3 +154,7 @@ function createElement(typeElement, elementID, elementIDLocation, elementClass, 
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDLocation).appendChild(createElement);
 }
+
+fetch('https://api.themoviedb.org/3/movie/ ?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR')
+    .then(res => res.json())
+    
