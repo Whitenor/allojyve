@@ -2,14 +2,15 @@ const pastList = [
     {'listName': 'upcoming', 'pastID':JSON.parse(localStorage.getItem('upcoming'))},
     {'listName': 'now_playing', 'pastID':JSON.parse(localStorage.getItem('now_playing'))},
     {'listName': 'popular', 'pastID':JSON.parse(localStorage.getItem('popular'))},
-]
-console.log(pastList)
-var x = 0
+];
+var newFilmCount = 0;
+var x = 0;
 var listActual = [
     {'listName' : 'upcoming', 'actualID':[], 'title':[]},
     {'listName' : 'now_playing', 'actualID':[], 'title':[]},
     {'listName' : 'popular', 'actualID':[], 'title':[]}
-]
+];
+var nouveauFilms = '';
 
 const schema = [
     {'type':'header','id':'header','position':'main','classes':'','src':'','textContent':''},
@@ -144,8 +145,8 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                         document.getElementsByClassName(cardClassSpec)[i].appendChild(title);
                         listArray[i] = response.results[i].id;
                         localStorage.setItem( listName, JSON.stringify(listArray));
-                        var test2 = listName+response.results[i].id;
-                        document.getElementById(test2).addEventListener('click', function(){
+                        var idCard = listName+response.results[i].id;
+                        document.getElementById(idCard).addEventListener('click', function(){
                             var id = this.value; 
                             fetch('https://api.themoviedb.org/3/movie/'+id+'?api_key=9e9d157f9d784170b706af996525a97c&language=en-US').then(res => {
                                 if (res.ok) {
@@ -175,7 +176,31 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
         })
     });
 }
-console.log(listActual)
+var listID = pastList[1].pastID
+for (let y = 0; y < listID.length; y++) {
+    if (pastList[1].pastID[y] !== listID[y]) {
+        if ( y === 19){
+            nouveauFilms = nouveauFilms + listActual[1].title[y];
+            newFilmCount++;
+        }
+        else{
+            nouveauFilms = nouveauFilms + listActual[1].title[y] + ', ';
+            newFilmCount++;
+        }
+    }
+    else{
+        break;
+    }
+    console.log(y)    
+}
+setTimeout(() => {
+    if (newFilmCount !== 0) {
+        alert('Voici les nouveaux films à l\'affiche:' + nouveauFilms)
+    }
+    else {
+        alert('pas de nouveaux film à l\'affiche')
+    }
+}, 5000);
 
 function createElement(typeElement, elementID, elementIDLocation, elementClass, elementSrc, elementTextContent){
     var createElement = document.createElement(typeElement);
