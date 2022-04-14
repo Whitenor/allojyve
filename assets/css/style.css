@@ -84,6 +84,11 @@ h2 {
 
 .card {
   margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+  font-size: 23px;
 }
 
 .imgSlider {
@@ -92,9 +97,13 @@ h2 {
   filter: drop-shadow(12px 8px 5px rgba(0, 0, 0, 0.25));
   border-radius: 15px;
 }
+.titleFilm{
+  margin-top: 10px;
+}
 
 #allSlider {
   padding-top: 20vh;
+  padding-bottom: 10vh;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -119,7 +128,7 @@ h2 {
 .sliderTitle {
   position: relative;
   padding-bottom: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   margin-top: 100px;
   text-align: center;
   font-size: 64px;

@@ -143,6 +143,7 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                         img.src = 'https://image.tmdb.org/t/p/original' + response.results[i].poster_path;
                         document.getElementsByClassName(cardClassSpec)[i].appendChild(img);
                         var title = document.createElement('div');
+                        title.classList = 'titleFilm';
                         title.textContent = response.results[i].title;
                         document.getElementsByClassName(cardClassSpec)[i].appendChild(title);
                         listArray[i] = response.results[i].id;
