@@ -193,7 +193,6 @@ for (let y = 0; y < listID.length; y++) {
     }
     console.log(y)    
 }
-console.log(newFilmCount)
 setTimeout(() => {
     if (newFilmCount !== 0) {
         // alert('Voici les nouveaux films à l\'affiche:' + nouveauFilms)
