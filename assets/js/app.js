@@ -1,9 +1,9 @@
 var lastVisitUpcomingID = JSON.parse(localStorage.getItem('upcoming'));
 var lastVisitNowPlayingID = JSON.parse(localStorage.getItem('now_playing'));
 var lastVisitPopularID = JSON.parse(localStorage.getItem('popular'));
-console.log(lastVisitUpcomingID);
-console.log(lastVisitNowPlayingID);
-console.log(lastVisitPopularID);
+// console.log(lastVisitUpcomingID);
+// console.log(lastVisitNowPlayingID);
+// console.log(lastVisitPopularID);
 
 const schema = [
     {'type':'header','id':'header','position':'main','classes':'','src':'','textContent':''},
@@ -127,7 +127,8 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                     for (i = 0; i < 20; i++) {
                         var card = document.createElement('div');
                         card.classList = 'card '+cardClassSpec;
-                        card.id = response.results[i].id
+                        card.id = listName+response.results[i].id
+                        card.value = response.results[i].id
                         document.getElementById(sliderID).appendChild(card);
                         var img = document.createElement('img');
                         img.classList = 'imgSlider';
@@ -138,6 +139,30 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                         document.getElementsByClassName(cardClassSpec)[i].appendChild(title);
                         listArray[i] = response.results[i].id;
                         localStorage.setItem( listName, JSON.stringify(listArray));
+                        var test2 = listName+response.results[i].id;
+                        document.getElementById(test2).addEventListener('click', function(){
+                            var id = this.value; 
+                            fetch('https://api.themoviedb.org/3/movie/'+id+'?api_key=9e9d157f9d784170b706af996525a97c&language=en-US').then(res => {
+                                if (res.ok) {
+                                    res.json().then(response => {
+                                        var modalGeneral = document.createElement('div');
+                                        modalGeneral.id = 'modal'
+                                        modalGeneral.classList = 'modal'
+                                        document.getElementsByTagName('body')[0].appendChild(modalGeneral)
+                                        var modalDialog = document.createElement('div')
+                                        modalDialog.classList = 'modal-dialog'
+                                        modalDialog.id = 'modalDialog'
+                                        document.getElementById('modal').appendChild(modalDialog)
+                                        var modalContent = document.createElement('div')
+                                        modalContent.classList = 'modal-content'
+                                        document.getElementById('modalDialog').appendChild(modalContent)
+                                       
+                                        
+                                    })
+                                }
+                            })
+                        })
+                        
                     }
                     resolve();
                 })
@@ -154,7 +179,3 @@ function createElement(typeElement, elementID, elementIDLocation, elementClass, 
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDLocation).appendChild(createElement);
 }
-
-fetch('https://api.themoviedb.org/3/movie/ ?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR')
-    .then(res => res.json())
-    
