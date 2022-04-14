@@ -202,7 +202,6 @@ for (let y = 0; y < listID.length; y++) {
 }
 setTimeout(() => {
     if (newFilmCount !== 0) {
-        // alert('Voici les nouveaux films à l\'affiche:' + nouveauFilms)
         var modalGeneralGen = document.createElement('div');
         modalGeneralGen.id = 'modalAlert';
         modalGeneralGen.classList = 'modal';
@@ -219,7 +218,6 @@ setTimeout(() => {
         })
     }
     else {
-        // alert('pas de nouveaux film à l\'affiche')
         var modalGeneralGen = document.createElement('div');
         modalGeneralGen.id = 'modalAlert';
         modalGeneralGen.classList = 'modal';
