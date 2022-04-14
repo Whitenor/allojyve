@@ -151,17 +151,17 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                             fetch('https://api.themoviedb.org/3/movie/'+id+'?api_key=9e9d157f9d784170b706af996525a97c&language=en-US').then(res => {
                                 if (res.ok) {
                                     res.json().then(response => {
-                                        var modalGeneral = document.createElement('div');
-                                        modalGeneral.id = 'modal'
-                                        modalGeneral.classList = 'modal'
-                                        document.getElementsByTagName('body')[0].appendChild(modalGeneral)
-                                        var modalDialog = document.createElement('div')
-                                        modalDialog.classList = 'modal-dialog'
-                                        modalDialog.id = 'modalDialog'
-                                        document.getElementById('modal').appendChild(modalDialog)
-                                        var modalContent = document.createElement('div')
-                                        modalContent.classList = 'modal-content'
-                                        document.getElementById('modalDialog').appendChild(modalContent)
+                                        // var modalGeneral = document.createElement('div');
+                                        // modalGeneral.id = 'modal'
+                                        // modalGeneral.classList = 'modal'
+                                        // document.getElementsByTagName('body')[0].appendChild(modalGeneral)
+                                        // var modalDialog = document.createElement('div')
+                                        // modalDialog.classList = 'modal-dialog'
+                                        // modalDialog.id = 'modalDialog'
+                                        // document.getElementById('modal').appendChild(modalDialog)
+                                        // var modalContent = document.createElement('div')
+                                        // modalContent.classList = 'modal-content'
+                                        // document.getElementById('modalDialog').appendChild(modalContent)
                                     })
                                 }
                             })
