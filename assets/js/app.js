@@ -71,6 +71,7 @@ getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcom
 
 document.getElementById('menuBurger').addEventListener('click', function(){
     document.getElementById('mobileNav').classList.remove('heightMobileNav');
+    document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
     document.getElementById('menuMobile').classList.add('open');
     document.getElementById('menuBurger').classList.add('transparent');
     setTimeout(() => {
@@ -84,6 +85,8 @@ document.getElementById('closeMenu').addEventListener('click', function(){
         document.getElementById('menuBurger').classList.remove('transparent');
     }, 200);
     document.getElementById('topMobileNav').classList.remove('close');
+    document.getElementsByTagName('body')[0].style.overflowY = 'visible';
+
     setTimeout(() => {
         document.getElementById('mobileNav').classList.add('heightMobileNav');
         document.getElementById('menuMobile').classList.remove('open');
@@ -114,6 +117,7 @@ for (let index = 0; index < mobileButtons.length; index++) {
             document.getElementById('menuBurger').classList.remove('transparent')
         }, 200);
         document.getElementById('topMobileNav').classList.remove('close')
+        document.getElementsByTagName('body')[0].style.overflowY = 'visible';
         document.getElementById('menuMobile').classList.remove('open')
     }) 
 }
@@ -154,17 +158,17 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                             fetch('https://api.themoviedb.org/3/movie/'+id+'?api_key=9e9d157f9d784170b706af996525a97c&language=en-US').then(res => {
                                 if (res.ok) {
                                     res.json().then(response => {
-                                        var modalGeneral = document.createElement('div');
-                                        modalGeneral.id = 'modal'
-                                        modalGeneral.classList = 'modal'
-                                        document.getElementsByTagName('body')[0].appendChild(modalGeneral)
-                                        var modalDialog = document.createElement('div')
-                                        modalDialog.classList = 'modal-dialog'
-                                        modalDialog.id = 'modalDialog'
-                                        document.getElementById('modal').appendChild(modalDialog)
-                                        var modalContent = document.createElement('div')
-                                        modalContent.classList = 'modal-content'
-                                        document.getElementById('modalDialog').appendChild(modalContent)
+                                        // var modalGeneral = document.createElement('div');
+                                        // modalGeneral.id = 'modal'
+                                        // modalGeneral.classList = 'modal'
+                                        // document.getElementsByTagName('body')[0].appendChild(modalGeneral)
+                                        // var modalDialog = document.createElement('div')
+                                        // modalDialog.classList = 'modal-dialog'
+                                        // modalDialog.id = 'modalDialog'
+                                        // document.getElementById('modal').appendChild(modalDialog)
+                                        // var modalContent = document.createElement('div')
+                                        // modalContent.classList = 'modal-content'
+                                        // document.getElementById('modalDialog').appendChild(modalContent)
                                     })
                                 }
                             })
@@ -202,14 +206,17 @@ setTimeout(() => {
         var modalGeneralGen = document.createElement('div');
         modalGeneralGen.id = 'modalAlert';
         modalGeneralGen.classList = 'modal';
+        document.getElementById('main').appendChild(modalGeneralGen);
         var modalContentGen = document.getElementById('div');
         modalContentGen.id = 'modalAlertContent';
         modalContentGen.classList = 'modal-content';
-        var divTest = document.createElement('div');
-        divTest.textContent = 'Voici les nouveaux films à l\'affiche:' + nouveauFilms;
-        document.getElementById('main').appendChild(modalGeneralGen);
         document.getElementById('modalAlert').appendChild(modalContentGen);
-        document.getElementById('modalAlertContent').appendChild(divTest);
+        var divMessage = document.createElement('div');
+        divMessage.textContent = 'Voici les nouveaux films à l\'affiche:' + nouveauFilms;
+        document.getElementById('modalAlertContent').appendChild(divMessage);
+        document.getElementById('modalAlertContent').addEventListener('click', function(){
+            document.getElementById('modalAlert').style.display = "none";
+        })
     }
     else {
         // alert('pas de nouveaux film à l\'affiche')
@@ -221,9 +228,19 @@ setTimeout(() => {
         modalContentGen.id = 'modalAlertContent';
         modalContentGen.classList = 'modal-content';
         document.getElementById('modalAlert').appendChild(modalContentGen);
-        var divTest = document.createElement('div');
-        divTest.textContent = 'Pas de nouveaux film à l\'affiche depuis la dernière visite';
-        document.getElementById('modalAlertContent').appendChild(divTest);
+        var leftColAlert = document.createElement('div');
+        leftColAlert.id  = 'leftColAlert';
+        document.getElementById('modalAlertContent').appendChild(leftColAlert);
+        var divMessage = document.createElement('div');
+        divMessage.id = 'messageNewFilm'
+        divMessage.textContent = 'Pas de nouveaux film à l\'affiche depuis la dernière visite';
+        document.getElementById('modalAlertContent').appendChild(divMessage);
+        var rightColAlert = document.createElement('div');
+        rightColAlert.id  = 'rightColAlert';
+        document.getElementById('modalAlertContent').appendChild(rightColAlert);
+        document.getElementById('modalAlertContent').addEventListener('click', function(){
+            document.getElementById('modalAlert').style.display = "none";
+        }) 
     }
 }, 100);
 
