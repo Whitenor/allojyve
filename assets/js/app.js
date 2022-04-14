@@ -222,7 +222,7 @@ setTimeout(() => {
         divTest.textContent = 'Pas de nouveaux film à l\'affiche depuis la dernière visite';
         document.getElementById('modalAlertContent').appendChild(divTest);
     }
-}, 5000);
+}, 100);
 
 function createElement(typeElement, elementID, elementIDLocation, elementClass, elementSrc, elementTextContent){
     var createElement = document.createElement(typeElement);
