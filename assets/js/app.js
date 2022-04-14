@@ -156,7 +156,7 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                                         var modalContent = document.createElement('div')
                                         modalContent.classList = 'modal-content'
                                         document.getElementById('modalDialog').appendChild(modalContent)
-                                       
+                                        
                                         
                                     })
                                 }
