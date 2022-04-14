@@ -193,12 +193,35 @@ for (let y = 0; y < listID.length; y++) {
     }
     console.log(y)    
 }
+console.log(newFilmCount)
 setTimeout(() => {
     if (newFilmCount !== 0) {
-        alert('Voici les nouveaux films à l\'affiche:' + nouveauFilms)
+        // alert('Voici les nouveaux films à l\'affiche:' + nouveauFilms)
+        var modalGeneralGen = document.createElement('div');
+        modalGeneralGen.id = 'modalAlert';
+        modalGeneralGen.classList = 'modal';
+        var modalContentGen = document.getElementById('div');
+        modalContentGen.id = 'modalAlertContent';
+        modalContentGen.classList = 'modal-content';
+        var divTest = document.createElement('div');
+        divTest.textContent = 'Voici les nouveaux films à l\'affiche:' + nouveauFilms;
+        document.getElementById('main').appendChild(modalGeneralGen);
+        document.getElementById('modalAlert').appendChild(modalContentGen);
+        document.getElementById('modalAlertContent').appendChild(divTest);
     }
     else {
-        alert('pas de nouveaux film à l\'affiche')
+        // alert('pas de nouveaux film à l\'affiche')
+        var modalGeneralGen = document.createElement('div');
+        modalGeneralGen.id = 'modalAlert';
+        modalGeneralGen.classList = 'modal';
+        document.getElementById('main').appendChild(modalGeneralGen);
+        var modalContentGen = document.createElement('div');
+        modalContentGen.id = 'modalAlertContent';
+        modalContentGen.classList = 'modal-content';
+        document.getElementById('modalAlert').appendChild(modalContentGen);
+        var divTest = document.createElement('div');
+        divTest.textContent = 'Pas de nouveaux film à l\'affiche depuis la dernière visite';
+        document.getElementById('modalAlertContent').appendChild(divTest);
     }
 }, 5000);
 
@@ -210,3 +233,11 @@ function createElement(typeElement, elementID, elementIDLocation, elementClass, 
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDLocation).appendChild(createElement);
 }
+
+
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('modalAlert')) {
+        document.getElementById('modalAlert').style.display = "none";
+    }
+  }
