@@ -1,9 +1,16 @@
-var lastVisitUpcomingID = JSON.parse(localStorage.getItem('upcoming'));
-var lastVisitNowPlayingID = JSON.parse(localStorage.getItem('now_playing'));
-var lastVisitPopularID = JSON.parse(localStorage.getItem('popular'));
-// console.log(lastVisitUpcomingID);
-// console.log(lastVisitNowPlayingID);
-// console.log(lastVisitPopularID);
+const pastList = [
+    {'listName': 'upcoming', 'pastID':JSON.parse(localStorage.getItem('upcoming'))},
+    {'listName': 'now_playing', 'pastID':JSON.parse(localStorage.getItem('now_playing'))},
+    {'listName': 'popular', 'pastID':JSON.parse(localStorage.getItem('popular'))},
+];
+var newFilmCount = 0;
+var x = 0;
+var listActual = [
+    {'listName' : 'upcoming', 'actualID':[], 'title':[]},
+    {'listName' : 'now_playing', 'actualID':[], 'title':[]},
+    {'listName' : 'popular', 'actualID':[], 'title':[]}
+];
+var nouveauFilms = '';
 
 const schema = [
     {'type':'header','id':'header','position':'main','classes':'','src':'','textContent':''},
@@ -16,11 +23,11 @@ const schema = [
     {'type':'div','id':'mobileNav','position':'header','classes':'heightMobileNav','src':'','textContent':''},
     {'type':'div','id':'topMobileNav','position':'mobileNav','classes':'','src':'','textContent':''},
     {'type':'img','id':'','position':'topMobileNav','classes':'logoMobileNav','src':'assets/img/allojyve_logo.png','textContent':''},
-    {'type':'i','id':'menuBurger','position':'topMobileNav','classes':'fa-solid fa-bars fa-5x','src':'','textContent':''},
+    {'type':'i','id':'menuBurger','position':'topMobileNav','classes':'fa-solid fa-bars fa-3x','src':'','textContent':''},
     {'type':'div','id':'menuMobile','position':'mobileNav','classes':'','src':'','textContent':''},
     {'type':'div','id':'firstRow','position':'menuMobile','classes':'','src':'','textContent':''},
     {'type':'img','id':'','position':'firstRow','classes':'logoMobileNav','src':'assets/img/allojyve_logo.png','textContent':''},
-    {'type':'i','id':'closeMenu','position':'firstRow','classes':'fa-solid fa-xmark fa-5x','src':'','textContent':''},
+    {'type':'i','id':'closeMenu','position':'firstRow','classes':'fa-solid fa-xmark fa-3x','src':'','textContent':''},
     {'type':'div','id':'linkTo','position':'menuMobile','classes':'','src':'','textContent':''},
     {'type':'div','id':'upcoming','position':'linkTo','classes':'mobileNavBtn','src':'','textContent':'Prochainement'},
     {'type':'div','id':'nowPlayings','position':'linkTo','classes':'mobileNavBtn','src':'','textContent':'À l\'affiche'},
@@ -64,21 +71,26 @@ getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcom
 
 document.getElementById('menuBurger').addEventListener('click', function(){
     document.getElementById('mobileNav').classList.remove('heightMobileNav');
+    document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
     document.getElementById('menuMobile').classList.add('open');
     document.getElementById('menuBurger').classList.add('transparent');
     setTimeout(() => {
         document.getElementById('topMobileNav').classList.add('close');
         
-    }, 500);
+    }, 100);
 })
 
 document.getElementById('closeMenu').addEventListener('click', function(){
-    document.getElementById('mobileNav').classList.add('heightMobileNav');
     setTimeout(() => {
         document.getElementById('menuBurger').classList.remove('transparent');
     }, 200);
     document.getElementById('topMobileNav').classList.remove('close');
-    document.getElementById('menuMobile').classList.remove('open');
+    document.getElementsByTagName('body')[0].style.overflowY = 'visible';
+
+    setTimeout(() => {
+        document.getElementById('mobileNav').classList.add('heightMobileNav');
+        document.getElementById('menuMobile').classList.remove('open');
+    }, 500);
 })
 
 var buttons = document.getElementsByClassName('navBtn');
@@ -105,6 +117,7 @@ for (let index = 0; index < mobileButtons.length; index++) {
             document.getElementById('menuBurger').classList.remove('transparent')
         }, 200);
         document.getElementById('topMobileNav').classList.remove('close')
+        document.getElementsByTagName('body')[0].style.overflowY = 'visible';
         document.getElementById('menuMobile').classList.remove('open')
     }) 
 }
@@ -120,10 +133,9 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                 var Slide = document.createElement('div');
                 Slide.id = sliderID;
                 Slide.classList = 'slider';
-                document.getElementById('allSlider').appendChild(Slide)
-                var listArray = []
+                document.getElementById('allSlider').appendChild(Slide);
+                var listArray = [];
                 res.json().then(response => {
-                    console.log(response);
                     for (i = 0; i < 20; i++) {
                         var card = document.createElement('div');
                         card.classList = 'card '+cardClassSpec;
@@ -135,41 +147,100 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                         img.src = 'https://image.tmdb.org/t/p/original' + response.results[i].poster_path;
                         document.getElementsByClassName(cardClassSpec)[i].appendChild(img);
                         var title = document.createElement('div');
+                        title.classList = 'titleFilm';
                         title.textContent = response.results[i].title;
                         document.getElementsByClassName(cardClassSpec)[i].appendChild(title);
                         listArray[i] = response.results[i].id;
                         localStorage.setItem( listName, JSON.stringify(listArray));
-                        var test2 = listName+response.results[i].id;
-                        document.getElementById(test2).addEventListener('click', function(){
+                        var idCard = listName+response.results[i].id;
+                        document.getElementById(idCard).addEventListener('click', function(){
                             var id = this.value; 
                             fetch('https://api.themoviedb.org/3/movie/'+id+'?api_key=9e9d157f9d784170b706af996525a97c&language=en-US').then(res => {
                                 if (res.ok) {
                                     res.json().then(response => {
-                                        var modalGeneral = document.createElement('div');
-                                        modalGeneral.id = 'modal'
-                                        modalGeneral.classList = 'modal'
-                                        document.getElementsByTagName('body')[0].appendChild(modalGeneral)
-                                        var modalDialog = document.createElement('div')
-                                        modalDialog.classList = 'modal-dialog'
-                                        modalDialog.id = 'modalDialog'
-                                        document.getElementById('modal').appendChild(modalDialog)
-                                        var modalContent = document.createElement('div')
-                                        modalContent.classList = 'modal-content'
-                                        document.getElementById('modalDialog').appendChild(modalContent)
-                                        
-                                        
+                                        // var modalGeneral = document.createElement('div');
+                                        // modalGeneral.id = 'modal'
+                                        // modalGeneral.classList = 'modal'
+                                        // document.getElementsByTagName('body')[0].appendChild(modalGeneral)
+                                        // var modalDialog = document.createElement('div')
+                                        // modalDialog.classList = 'modal-dialog'
+                                        // modalDialog.id = 'modalDialog'
+                                        // document.getElementById('modal').appendChild(modalDialog)
+                                        // var modalContent = document.createElement('div')
+                                        // modalContent.classList = 'modal-content'
+                                        // document.getElementById('modalDialog').appendChild(modalContent)
                                     })
                                 }
                             })
                         })
-                        
+                        listActual[x].actualID[i] = response.results[i].id;
+                        listActual[x].title[i] = response.results[i].title;
                     }
                     resolve();
+                    x++;
                 })
             }
         })
     });
 }
+var listID = pastList[1].pastID
+for (let y = 0; y < listID.length; y++) {
+    if (pastList[1].pastID[y] !== listID[y]) {
+        if ( y === 19){
+            nouveauFilms = nouveauFilms + listActual[1].title[y];
+            newFilmCount++;
+        }
+        else{
+            nouveauFilms = nouveauFilms + listActual[1].title[y] + ', ';
+            newFilmCount++;
+        }
+    }
+    else{
+        break;
+    }
+    console.log(y)    
+}
+setTimeout(() => {
+    if (newFilmCount !== 0) {
+        var modalGeneralGen = document.createElement('div');
+        modalGeneralGen.id = 'modalAlert';
+        modalGeneralGen.classList = 'modal';
+        document.getElementById('main').appendChild(modalGeneralGen);
+        var modalContentGen = document.getElementById('div');
+        modalContentGen.id = 'modalAlertContent';
+        modalContentGen.classList = 'modal-content';
+        document.getElementById('modalAlert').appendChild(modalContentGen);
+        var divMessage = document.createElement('div');
+        divMessage.textContent = 'Voici les nouveaux films à l\'affiche:' + nouveauFilms;
+        document.getElementById('modalAlertContent').appendChild(divMessage);
+        document.getElementById('modalAlertContent').addEventListener('click', function(){
+            document.getElementById('modalAlert').style.display = "none";
+        })
+    }
+    else {
+        var modalGeneralGen = document.createElement('div');
+        modalGeneralGen.id = 'modalAlert';
+        modalGeneralGen.classList = 'modal';
+        document.getElementById('main').appendChild(modalGeneralGen);
+        var modalContentGen = document.createElement('div');
+        modalContentGen.id = 'modalAlertContent';
+        modalContentGen.classList = 'modal-content';
+        document.getElementById('modalAlert').appendChild(modalContentGen);
+        var leftColAlert = document.createElement('div');
+        leftColAlert.id  = 'leftColAlert';
+        document.getElementById('modalAlertContent').appendChild(leftColAlert);
+        var divMessage = document.createElement('div');
+        divMessage.id = 'messageNewFilm'
+        divMessage.textContent = 'Pas de nouveaux film à l\'affiche depuis la dernière visite';
+        document.getElementById('modalAlertContent').appendChild(divMessage);
+        var rightColAlert = document.createElement('div');
+        rightColAlert.id  = 'rightColAlert';
+        document.getElementById('modalAlertContent').appendChild(rightColAlert);
+        document.getElementById('modalAlertContent').addEventListener('click', function(){
+            document.getElementById('modalAlert').style.display = "none";
+        }) 
+    }
+}, 100);
 
 function createElement(typeElement, elementID, elementIDLocation, elementClass, elementSrc, elementTextContent){
     var createElement = document.createElement(typeElement);
@@ -179,3 +250,11 @@ function createElement(typeElement, elementID, elementIDLocation, elementClass, 
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDLocation).appendChild(createElement);
 }
+
+
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('modalAlert')) {
+        document.getElementById('modalAlert').style.display = "none";
+    }
+  }
