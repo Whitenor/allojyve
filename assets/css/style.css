@@ -351,7 +351,9 @@ h2 {
   background-color: whitesmoke;
   margin: auto;
   margin-top: 50vh;
-  width: 80%;
+  margin-right: 5%;
+  margin-left: 5%;
+  min-width: 80%;
   min-height: 50px;
   display: flex;
   justify-content: space-between;
@@ -421,9 +423,18 @@ h2 {
   border-left : 59px solid transparent;
   border-top : 59px solid black;
 }
-
-
-
+#averageNoteUser{
+  color: #fbdd00;
+}
+#spanModal{
+  color: black;
+}
+#closingModal{
+  cursor: pointer;
+}
+#closingModal:hover{
+  color: #fbdd00;
+}
 
 
 
@@ -491,7 +502,10 @@ h2 {
     padding: 5px;
   }
 }
-
+#poster {
+  height: 200px;
+  width: auto;
+}
 
 
 @media screen and (max-width: 500px) {

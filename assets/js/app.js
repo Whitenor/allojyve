@@ -158,17 +158,65 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                         var idCard = listName+response.results[i].id;
                         document.getElementById(idCard).addEventListener('click', function(){
                             var id = this.value; 
-                            fetch('https://api.themoviedb.org/3/movie/'+id+'?api_key=9e9d157f9d784170b706af996525a97c&language=en-US').then(res => {
+                            fetch('https://api.themoviedb.org/3/movie/'+ id +'?api_key=9e9d157f9d784170b706af996525a97c&language=fr-FR').then(res => {
                                 if (res.ok) {
                                     res.json().then(response => {
-                                        modalCreate()
+                                        var modalContent = document.createElement('div')
+                                        modalContent.id = 'modalContent'
+                                        modalContent.classList = 'modal-content'
+                                        document.getElementById('modal').appendChild(modalContent)
+                                        document.getElementById('modal').classList.add('yes')
+                                    
+                                        var affiche = document.createElement('div')
+                                        affiche.id = 'zoneAffiche'
+                                        document.getElementById('modalContent').appendChild(affiche)
+                                        var poster_path = document.createElement('img')
+                                        poster_path.id = 'poster'
+                                        poster_path.src = 'https://image.tmdb.org/t/p/original' + response.poster_path
+                                        document.getElementById('zoneAffiche').appendChild(poster_path)
+                                    
+                                        var descriptif = document.createElement('div')
+                                        descriptif.id = 'descriptif'
+                                        document.getElementById('modalContent').appendChild(descriptif)
+                                        var titleFilmModal = document.createElement('div')
+                                        titleFilmModal.id = 'titleFilm'
+                                        titleFilmModal.textContent = response.original_title
+                                        document.getElementById('descriptif').appendChild(titleFilmModal)
+                                        var release = document.createElement('div')
+                                        release.id = 'releaseDate'
+                                        release.textContent = response.release_date
+                                        document.getElementById('descriptif').appendChild(release)
+                                        var actor = document.createElement('div')
+                                        actor.id = 'actor'
+                                        document.getElementById('descriptif').appendChild(actor)
+                                        var synopsis = document.createElement('div')
+                                        synopsis.id = 'synopsis'
+                                        synopsis.textContent = response.overview
+                                        document.getElementById('descriptif').appendChild(synopsis)
+                                        var averageNoteUser = document.createElement('div')
+                                        averageNoteUser.id = 'averageNoteUser'
+                                        averageNoteUser.textContent = response.vote_average
+                                        document.getElementById('descriptif').appendChild(averageNoteUser)
+                                        var spanModal = document.createElement('span')
+                                        spanModal.id = 'spanModal'
+                                        spanModal.textContent = '/10'
+                                        document.getElementById('averageNoteUser').appendChild(spanModal)
+                                    
+                                        var closingModal = document.createElement('div')
+                                        closingModal.id = 'closingModal'
+                                        closingModal.textContent = 'X'
+                                        document.getElementById('modalContent').appendChild(closingModal)
+                                        document.getElementById('modalContent').addEventListener('click', function(){
+                                            document.getElementById('modal').removeChild(document.getElementById('modal').firstElementChild)
+                                            document.getElementById('modal').classList.remove('yes');
+                                        })
                                         window.onclick = function(event) {
                                             if (event.target == document.getElementById('modal')) {
                                                 var removeTime = document.getElementById('modal');
                                                 removeTime.removeChild(removeTime.firstElementChild);
                                                 document.getElementById('modal').classList.remove('yes');
                                             }
-                                          }
+                                        }
                                     })
                                 }
                             })
@@ -213,9 +261,7 @@ setTimeout(() => {
         var divMessage = document.createElement('div');
         divMessage.textContent = 'Voici les nouveaux films à l\'affiche:' + nouveauFilms;
         document.getElementById('modalAlertContent').appendChild(divMessage);
-        document.getElementById('modalAlertContent').addEventListener('click', function(){
-            document.getElementById('modalAlert').style.display = "none";
-        })
+
     }
     else {
         var modalGeneralGen = document.createElement('div');
@@ -250,13 +296,7 @@ function createElement(typeElement, elementID, elementIDLocation, elementClass, 
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDLocation).appendChild(createElement);
 }
-function modalCreate(){
-    var modalContent = document.createElement('div')
-        modalContent.id = 'modalContent'
-        modalContent.classList = 'modal-content'
-        document.getElementById('modal').appendChild(modalContent)
-        document.getElementById('modal').classList.add('yes')
-}
+
 
 
 window.onclick = function(event) {
