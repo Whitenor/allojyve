@@ -546,7 +546,7 @@ h2 {
   #leftColAlert, #rightColAlert {
     display: none;
   }
-  .modal-content{
+  .modal-content-alert{
     border-right: solid 4px black;
     border-left: solid 4px #fbdd00;
   }
