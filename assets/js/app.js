@@ -61,7 +61,10 @@ const schema = [
 for (let i = 0; i < schema.length; i++) {
     createElement(schema[i].type, schema[i].id, schema[i].position, schema[i].classes, schema[i].src, schema[i].textContent)
 }
-
+var modalGeneral = document.createElement('div');
+modalGeneral.id = 'modal'
+modalGeneral.classList = 'modal'
+document.getElementsByTagName('body')[0].appendChild(modalGeneral)
 // Contenu Principal
 
 getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcoming').then(res => {
@@ -158,17 +161,18 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                             fetch('https://api.themoviedb.org/3/movie/'+id+'?api_key=9e9d157f9d784170b706af996525a97c&language=en-US').then(res => {
                                 if (res.ok) {
                                     res.json().then(response => {
-                                        // var modalGeneral = document.createElement('div');
-                                        // modalGeneral.id = 'modal'
-                                        // modalGeneral.classList = 'modal'
-                                        // document.getElementsByTagName('body')[0].appendChild(modalGeneral)
-                                        // var modalDialog = document.createElement('div')
-                                        // modalDialog.classList = 'modal-dialog'
-                                        // modalDialog.id = 'modalDialog'
-                                        // document.getElementById('modal').appendChild(modalDialog)
-                                        // var modalContent = document.createElement('div')
-                                        // modalContent.classList = 'modal-content'
-                                        // document.getElementById('modalDialog').appendChild(modalContent)
+                                        var modalContent = document.createElement('div')
+                                        modalContent.id = 'modalContent'
+                                        modalContent.classList = 'modal-content'
+                                        document.getElementById('modal').appendChild(modalContent)
+                                        document.getElementById('modal').classList.add('yes')
+                                        window.onclick = function(event) {
+                                            if (event.target == document.getElementById('modal')) {
+                                                var removeTime = document.getElementById('modal');
+                                                removeTime.removeChild(removeTime.firstElementChild);
+                                                document.getElementById('modal').classList.remove('yes');
+                                            }
+                                          }
                                     })
                                 }
                             })
@@ -204,11 +208,11 @@ setTimeout(() => {
     if (newFilmCount !== 0) {
         var modalGeneralGen = document.createElement('div');
         modalGeneralGen.id = 'modalAlert';
-        modalGeneralGen.classList = 'modal';
+        modalGeneralGen.classList = 'modalAlert';
         document.getElementById('main').appendChild(modalGeneralGen);
         var modalContentGen = document.getElementById('div');
         modalContentGen.id = 'modalAlertContent';
-        modalContentGen.classList = 'modal-content';
+        modalContentGen.classList = 'modal-content-alert';
         document.getElementById('modalAlert').appendChild(modalContentGen);
         var divMessage = document.createElement('div');
         divMessage.textContent = 'Voici les nouveaux films à l\'affiche:' + nouveauFilms;
@@ -220,11 +224,11 @@ setTimeout(() => {
     else {
         var modalGeneralGen = document.createElement('div');
         modalGeneralGen.id = 'modalAlert';
-        modalGeneralGen.classList = 'modal';
+        modalGeneralGen.classList = 'modalAlert';
         document.getElementById('main').appendChild(modalGeneralGen);
         var modalContentGen = document.createElement('div');
         modalContentGen.id = 'modalAlertContent';
-        modalContentGen.classList = 'modal-content';
+        modalContentGen.classList = 'modal-content-alert';
         document.getElementById('modalAlert').appendChild(modalContentGen);
         var leftColAlert = document.createElement('div');
         leftColAlert.id  = 'leftColAlert';
