@@ -161,11 +161,7 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                             fetch('https://api.themoviedb.org/3/movie/'+id+'?api_key=9e9d157f9d784170b706af996525a97c&language=en-US').then(res => {
                                 if (res.ok) {
                                     res.json().then(response => {
-                                        var modalContent = document.createElement('div')
-                                        modalContent.id = 'modalContent'
-                                        modalContent.classList = 'modal-content'
-                                        document.getElementById('modal').appendChild(modalContent)
-                                        document.getElementById('modal').classList.add('yes')
+                                        modalCreate()
                                         window.onclick = function(event) {
                                             if (event.target == document.getElementById('modal')) {
                                                 var removeTime = document.getElementById('modal');
@@ -254,7 +250,13 @@ function createElement(typeElement, elementID, elementIDLocation, elementClass, 
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDLocation).appendChild(createElement);
 }
-
+function modalCreate(){
+    var modalContent = document.createElement('div')
+        modalContent.id = 'modalContent'
+        modalContent.classList = 'modal-content'
+        document.getElementById('modal').appendChild(modalContent)
+        document.getElementById('modal').classList.add('yes')
+}
 
 
 window.onclick = function(event) {
