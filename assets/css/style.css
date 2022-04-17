@@ -357,7 +357,7 @@ h2 {
   min-width: 80%;
   min-height: 50px;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   border-top: solid 4px black;
   border-left: none;
