@@ -654,4 +654,8 @@ margin : 5px;
     border-right: solid 4px black;
     border-left: solid 4px #fbdd00;
   }
+
+  .modal-content {
+    margin-top: 15vh;
+  }
 }
