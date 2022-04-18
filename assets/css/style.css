@@ -348,6 +348,7 @@ h2 {
   background-color: rgba(0,0,0,0.12); /* Black w/ opacity */
 }
 .modal-content {
+
   position: relative;
   background-color: whitesmoke;
   margin: auto;
@@ -475,8 +476,6 @@ h2 {
     height: 350px;
     width: auto;
   }
-
-
 #spanModal{
   color: black;
 }
@@ -560,69 +559,55 @@ h2 {
     font-size: 17px;
     padding: 5px;
   }
-
   .modal-content {
-flex-direction: column;
+    flex-direction: column;
   }
-
   #descriptif{
-margin : 5px;
+    margin : 5px;
   }
   #averageNoteUser{
     position: relative;
     top: 0px;
   }
-
   #poster{
     margin-top: 5px;
     margin-right: 0px;
       height: 300px;
     }
-
     #titleFilm{
       position: relative;
       top: 0px;
     }
-    
     #releaseDate{
       position: relative;
       top: -45px;
     }
-  
 }
-
-
 
 
 @media screen and (max-width: 500px) {
   .logoMobileNav {
     height: 100px;
   }
-
   #closeMenu{
     margin-right: 50px;
   }
-
   #socialsLinkTop {
     width: 100%;
   }
-
   #linkTo{
     border-top: none;
     width: 60vw;
   }
-
   #allSlider {
     width: 100%;
   }
-
   .sliderTitle {
     width: 100%;
     font-size: 40px;
     background-color: #fbdd00;
     padding-top: 10px;
   }
-
   .sliderTitle::before {
     position: absolute;
     content: '';
@@ -637,13 +622,11 @@ margin : 5px;
   .slider {
     width: 100%;
   }
-
   #leftCol,
   #rightCol {
     width: 0%;
     border: none;
   }
-
   .open {
     width: 100% !important;
   }
@@ -654,8 +637,6 @@ margin : 5px;
     border-right: solid 4px black;
     border-left: solid 4px #fbdd00;
   }
-
   .modal-content {
     margin-top: 15vh;
   }
-}
