@@ -489,7 +489,9 @@ h2 {
 #closingModal:hover{
   color: #fbdd00;
 }
-
+#facebookFooter, #twitterFooter, #instagramFooter, #facebookNavTop, #twitterNavTop, #instagramNavTop{
+  cursor: pointer;
+}
 
 
 
