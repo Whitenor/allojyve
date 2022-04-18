@@ -297,8 +297,6 @@ function createElement(typeElement, elementID, elementIDLocation, elementClass, 
     document.getElementById(elementIDLocation).appendChild(createElement);
 }
 
-
-
 window.onclick = function(event) {
     if (event.target == document.getElementById('modalAlert')) {
         document.getElementById('modalAlert').style.display = "none";
