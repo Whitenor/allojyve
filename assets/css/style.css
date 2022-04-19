@@ -432,6 +432,7 @@ h2 {
   color: black;
   z-index: 1;
   bottom: 12%;
+  
 }
 #averageNoteUser::before {
   position: absolute;
@@ -448,7 +449,7 @@ h2 {
   justify-content: flex-start;
   
   flex-direction: column;
-  text-align: justify;
+
   margin-left: 2%;
   min-height: 80%;
   
@@ -573,10 +574,12 @@ h2 {
   }
   #descriptif{
     margin : 5px;
+    text-align: center;
   }
   #averageNoteUser{
     position: relative;
-    top: 0px;
+    text-align: left;
+    margin-top: 3%;
   }
   #poster{
     margin-top: 5px;
@@ -585,11 +588,14 @@ h2 {
     }
     #titleFilm{
       position: relative;
-      top: 0px;
+      margin-top: 3%;
     }
     #releaseDate{
       position: relative;
-      top: -45px;
+      
+    }
+    #synopsis{
+      text-align: left;
     }
 }
 
@@ -649,19 +655,21 @@ h2 {
   .modal-content {
     margin-top: 15vh;
   }
+  
   #titleFilm{
     font-size: 1.5rem;
     margin-top: 10%;
   }
   #releaseDate{
-    margin-top: 16%;
+    margin-top: 2%;
   }
   #synopsis{
     font-size: 1rem;
-    text-align: left;
+    margin-top: 5%;
   }
   #averageNoteUser{
     margin-top: 10%;
     font-size: 1.5rem;
+    
   }
 }
