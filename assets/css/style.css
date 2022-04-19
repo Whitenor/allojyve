@@ -360,7 +360,7 @@ h2 {
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
-  
+  opacity: 96%;
   border-left: none;
   border-right: none;
   padding: 50px;
