@@ -22,7 +22,6 @@ var loaderInit = document.createElement('div');
     loaderInit.id = 'loader';
 document.getElementsByTagName('body')[0].prepend(loaderInit);
 var svgInit = document.createElement('svg');
-    svgInit.id ='svgInit'
     svgInit.classList = 'icone';
     svgInit.setAttribute('width', '447');
     svgInit.setAttribute('height', '113');
@@ -33,7 +32,7 @@ document.getElementById('loader').append(svgInit);
 var firstG = document.createElement('g');
     firstG.id = 'Frame-1';
     firstG.setAttribute('clip-path', 'url(#clip0_1_2)');
-document.getElementById('svgInit').append(firstG);
+document.getElementsByTagName('svg')[0].append(firstG);
 var firstRect = document.createElement('rect');
     firstRect.setAttribute('width','447');
     firstRect.setAttribute('height','113');
@@ -81,7 +80,7 @@ var thirdRect = document.createElement('rect');
     thirdRect.setAttribute('fill', '#FBDD00');
 document.getElementById('Rectangle2').append(thirdRect);
 var defs = document.createElement('defs');
-document.getElementById('svgInit').append(defs);
+document.getElementsByTagName('svg')[0].append(defs);
 var clipPath = document.createElement('clipPath')
     clipPath.id = 'clip0_1_2';
 document.getElementsByTagName('defs')[0].append(clipPath)
