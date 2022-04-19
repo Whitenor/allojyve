@@ -139,6 +139,7 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                 document.getElementById('allSlider').appendChild(Slide);
                 var listArray = [];
                 res.json().then(response => {
+                    console.log(response)
                     for (i = 0; i < 20; i++) {
                         var card = document.createElement('div');
                         card.classList = 'card '+cardClassSpec;
@@ -191,7 +192,11 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                                         document.getElementById('descriptif').appendChild(actor)
                                         var synopsis = document.createElement('div')
                                         synopsis.id = 'synopsis'
-                                        synopsis.textContent = response.overview
+                                        if (response.overview === "") {
+                                            synopsis.textContent = 'Aucun synopsis n\'a été fourni'
+                                        }else{
+                                            synopsis.textContent = response.overview
+                                        }
                                         document.getElementById('descriptif').appendChild(synopsis)
                                         var averageNoteUser = document.createElement('div')
                                         averageNoteUser.id = 'averageNoteUser'
@@ -202,9 +207,9 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                                         spanModal.textContent = '/10'
                                         document.getElementById('averageNoteUser').appendChild(spanModal)
                                     
-                                        var closingModal = document.createElement('div')
+                                        var closingModal = document.createElement('i')
                                         closingModal.id = 'closingModal'
-                                        closingModal.textContent = 'X'
+                                        closingModal.classList = 'fa-solid fa-xmark'
                                         document.getElementById('modalContent').appendChild(closingModal)
                                         document.getElementById('modalContent').addEventListener('click', function(){
                                             document.getElementById('modal').removeChild(document.getElementById('modal').firstElementChild)
