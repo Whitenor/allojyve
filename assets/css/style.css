@@ -472,7 +472,8 @@ h2 {
 #synopsis{
   font-size: 1.4rem;
   width: 90%;
-  margin-top: 2%;
+  margin-top: 5%;
+  line-height: 20px;
 }
 
 
@@ -665,7 +666,7 @@ h2 {
   }
   #synopsis{
     font-size: 1rem;
-    margin-top: 5%;
+    margin-top: 15%;
   }
   #averageNoteUser{
     margin-top: 10%;
