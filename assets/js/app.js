@@ -22,7 +22,7 @@ const schema = [
     {'type':'p','id':'popular','position':'nav','classes':'navBtn','src':'','textContent':'Populaires'},
     {'type':'div','id':'mobileNav','position':'header','classes':'heightMobileNav','src':'','textContent':''},
     {'type':'div','id':'topMobileNav','position':'mobileNav','classes':'','src':'','textContent':''},
-    {'type':'img','id':'','position':'topMobileNav','classes':'logoMobileNav','src':'assets/img/allojyve_logo.png','textContent':''},
+    {'type':'img','id':'logoMobileNav','position':'topMobileNav','classes':'logoMobileNav','src':'assets/img/allojyve_logo.png','textContent':''},
     {'type':'i','id':'menuBurger','position':'topMobileNav','classes':'fa-solid fa-bars fa-3x','src':'','textContent':''},
     {'type':'div','id':'menuMobile','position':'mobileNav','classes':'','src':'','textContent':''},
     {'type':'div','id':'firstRow','position':'menuMobile','classes':'','src':'','textContent':''},
@@ -306,4 +306,17 @@ window.onclick = function(event) {
     if (event.target == document.getElementById('modalAlert')) {
         document.getElementById('modalAlert').style.display = "none";
     }
-  }
+}
+
+document.getElementById('logoNav').addEventListener('click',function(){
+    var offsetTop = document.getElementById('h1').offsetTop;
+    console.log(offsetTop)
+    var offsetLeft = document.getElementById('h1').offsetLeft;
+    console.log(offsetLeft)
+    window.scrollTo(offsetTop,offsetLeft)
+})
+document.getElementById('logoMobileNav').addEventListener('click',function(){
+    var offsetTop = document.getElementById('h1').offsetTop;
+    var offsetLeft = document.getElementById('h1').offsetLeft;
+    window.scrollTo(offsetTop,offsetLeft)
+})
