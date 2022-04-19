@@ -508,6 +508,74 @@ h2 {
 
 
 
+#loader {
+  height: 100vh;
+  width: 100wh;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  filter: blur(0.5px);
+  perspective: 122px;
+  animation: animB 2s ease 5s;
+}
+
+
+/* La lettre A qui ne vient plus bousculer les autres et lancer l'animation, mais juste jouer sur l'opacité  */
+
+.icone path:nth-child(1) {
+  opacity : 0;
+  animation: anim 2s ease-out 0.2s 1 normal forwards;
+}
+
+/* le llojivé et la border bottom */
+
+.icone path:nth-child(2) {
+  stroke-dasharray: 1000px;
+  stroke-dashoffset: 1000px;
+  fill-opacity: 0%;
+  animation: anim 8s ease 0.7s forwards;
+
+}
+
+.icone path:nth-child(3) {
+  stroke-dasharray: 500px;
+  stroke-dashoffset: 500px;
+  animation: anim 4s ease-in-out 0.6s forwards;
+}
+
+
+#carre1,
+#carre2{
+  opacity: 0;
+  animation: anim 3s ease 3s forwards;
+
+}
+
+
+/* Les Keyframes */
+
+/* Anim de llojivé */
+@keyframes anim {
+  to {
+      stroke-dashoffset: 0;
+      opacity: 100%;
+      fill-opacity: 100%;
+  }
+
+}
+
+
+@keyframes animB {
+  to {
+      /* background : rgba(0, 0, 0, 0); */
+      filter :blur(15px);
+      transform: rotateX(90deg) rotateY(0deg);
+      perspective:0;
+  }
+}
+
+
 
 
 
