@@ -52,6 +52,7 @@ h2 {
 #logoNav {
   height: 17.31vh;
   width: auto;
+  cursor: pointer;
 }
 
 #nav>p {
