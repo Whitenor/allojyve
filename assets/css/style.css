@@ -655,4 +655,8 @@ h2 {
   #releaseDate{
     margin-top: 16%;
   }
+  #synopsis{
+    font-size: 1rem;
+
+  }
 }
