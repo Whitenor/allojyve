@@ -20,6 +20,7 @@ var nouveauFilms = '';
 
 var loaderInit = document.createElement('div');
     loaderInit.id = 'loader';
+    loaderInit.classList ='none'
 document.getElementsByTagName('body')[0].prepend(loaderInit);
 var svgInit = document.createElement('svg');
     svgInit.classList = 'icone';
@@ -89,10 +90,11 @@ var fourthRect = document.createElement('rect');
     fourthRect.setAttribute('height','113');
     fourthRect.setAttribute('fill','white');
 document.getElementById('clip0_1_2').append(fourthRect);
-setTimeout(() => {
-    document.getElementById('loader').classList.add('none');
-    document.getElementById('main').classList.remove('none');
-}, 6800)
+// setTimeout(() => {
+//     document.getElementById('loader').classList.add('none');
+//     document.getElementById('main').classList.remove('none');
+// }, 6800)
+document.getElementById('main').classList.remove('none');
 
 
 
