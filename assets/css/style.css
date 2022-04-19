@@ -365,6 +365,8 @@ h2 {
   border-left: none;
   border-right: none;
   padding: 50px;
+  border-bottom: solid 6px #fbdd00;
+  border-top: solid 4px black;
 }
 
 
@@ -427,13 +429,14 @@ h2 {
   border-top : 59px solid black;
 }
 #averageNoteUser{
-  position: absolute;
+  position: relative;
   font-weight: bolder;
   font-size: 1.8rem;
   color: black;
   z-index: 1;
   bottom: 12%;
-  
+  margin-top: 4%;
+
 }
 #averageNoteUser::before {
   position: absolute;
@@ -453,7 +456,7 @@ h2 {
 
   margin-left: 2%;
   min-height: 80%;
-  
+  margin-bottom: 10%;
 }
 
 
@@ -471,10 +474,10 @@ h2 {
 }
 
 #synopsis{
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   width: 90%;
-  margin-top: 5%;
-  line-height: 20px;
+  margin-top: 6%;
+  line-height: 25px;
 }
 
 
