@@ -651,12 +651,17 @@ h2 {
   }
   #titleFilm{
     font-size: 1.5rem;
+    margin-top: 10%;
   }
   #releaseDate{
     margin-top: 16%;
   }
   #synopsis{
     font-size: 1rem;
-
+    text-align: left;
+  }
+  #averageNoteUser{
+    margin-top: 10%;
+    font-size: 1.5rem;
   }
 }
