@@ -426,12 +426,13 @@ h2 {
   border-top : 59px solid black;
 }
 #averageNoteUser{
-  position: absolute;
+  position: relative;
   font-weight: bolder;
   font-size: 1.8rem;
   color: black;
   z-index: 1;
   bottom: 12%;
+  margin-top: 3%;
   
 }
 #averageNoteUser::before {
@@ -473,7 +474,7 @@ h2 {
   font-size: 1.4rem;
   width: 90%;
   margin-top: 5%;
-  line-height: 20px;
+  line-height: 25px;
 }
 
 
