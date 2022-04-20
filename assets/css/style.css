@@ -52,6 +52,7 @@ h2 {
 #logoNav {
   height: 17.31vh;
   width: auto;
+  cursor: pointer;
 }
 
 #nav>p {
@@ -352,18 +353,20 @@ h2 {
   position: relative;
   background-color: whitesmoke;
   margin: auto;
-  margin-top: 30vh;
-  margin-right: 5%;
-  margin-left: 5%;
+  margin-top: 20vh;
+  margin-right: 3.3%;
+  margin-left: 3.3%;
   min-width: 80%;
   min-height: 50px;
   display: flex;
   /* justify-content: space-between; */
   align-items: center;
-  border-top: solid 4px black;
+  opacity: 96%;
   border-left: none;
   border-right: none;
+  padding: 50px;
   border-bottom: solid 6px #fbdd00;
+  border-top: solid 4px black;
 }
 
 
@@ -426,55 +429,64 @@ h2 {
   border-top : 59px solid black;
 }
 #averageNoteUser{
-  position: absolute;
+  position: relative;
   font-weight: bolder;
+  font-size: 1.8rem;
   color: black;
   z-index: 1;
-  top: 320px;
+  bottom: 12%;
+  margin-top: 4%;
+
 }
 #averageNoteUser::before {
   position: absolute;
   content: '';
   background: #fbdd00;
   clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
-  width: 18rem;
+  width: 9rem;
   height: 100%;
   z-index: -1;
 }
 
 #descriptif{
   display : flex;
-  justify-content: space-around;
-  gap: 10px;
+  justify-content: flex-start;
+  
   flex-direction: column;
-  text-align: justify;
+
+  margin-left: 2%;
+  min-height: 80%;
+  margin-bottom: 10%;
 }
 
 
 #titleFilm{
   font-weight: bold;
-  font-size: 2rem;
-  padding-bottom: 50px;
-  position: absolute;
-  top: 10px;
+  font-size: 3rem;
+  
+  
 }
 
 #releaseDate{
-  position: absolute;
+  
   font-style: italic;
- top: 55px;
+  font-size: 1.3rem;
 }
 
 #synopsis{
-  margin-right: 10px;
+  font-size: 1.1rem;
+  width: 90%;
+  margin-top: 6%;
+  line-height: 25px;
 }
 
 
 #poster{
   box-shadow : 9px 9px 20px 0px #FFDC00; 
   margin-right: 20px;
-    height: 350px;
+    height: 480px;
     width: auto;
+  border-radius: 10px;
   }
 #spanModal{
   color: black;
@@ -485,15 +497,84 @@ h2 {
   top: 2%;
   right: 2%;
   font-weight: bold;
+  font-size: 2.5rem;
 }
 #closingModal:hover{
   color: #fbdd00;
 }
+#facebookFooter, #twitterFooter, #instagramFooter, #facebookNavTop, #twitterNavTop, #instagramNavTop{
+  cursor: pointer;
+}
 
 
 
 
+#loader {
+  height: 100vh;
+  width: 100%;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  filter: blur(0.5px);
+  perspective: 122px;
+  animation: animB 2s ease 5s;
+}
 
+
+/* La lettre A qui ne vient plus bousculer les autres et lancer l'animation, mais juste jouer sur l'opacité  */
+
+.icone path:nth-child(1) {
+  opacity : 0;
+  animation: anim 2s ease-out 0.2s 1 normal forwards;
+}
+
+/* le llojivé et la border bottom */
+
+.icone path:nth-child(2) {
+  stroke-dasharray: 1000px;
+  stroke-dashoffset: 1000px;
+  fill-opacity: 0%;
+  animation: anim 8s ease 0.7s forwards;
+
+}
+
+.icone path:nth-child(3) {
+  stroke-dasharray: 500px;
+  stroke-dashoffset: 500px;
+  animation: anim 4s ease-in-out 0.6s forwards;
+}
+
+
+#carre1,
+#carre2{
+  opacity: 0;
+  animation: anim 3s ease 3s forwards;
+
+}
+
+
+/* Les Keyframes */
+
+/* Anim de llojivé */
+@keyframes anim {
+  to {
+      stroke-dashoffset: 0;
+      opacity: 100%;
+      fill-opacity: 100%;
+  }
+
+}
+
+
+@keyframes animB {
+  to { 
+      background : rgba(0, 0, 0, 0);
+      filter :blur(15px);
+      transform: rotateX(90deg) rotateY(0deg);
+      perspective:0;
+  }
+} 
 
 
 
@@ -564,10 +645,12 @@ h2 {
   }
   #descriptif{
     margin : 5px;
+    text-align: center;
   }
   #averageNoteUser{
     position: relative;
-    top: 0px;
+    text-align: left;
+    margin-top: 3%;
   }
   #poster{
     margin-top: 5px;
@@ -576,11 +659,14 @@ h2 {
     }
     #titleFilm{
       position: relative;
-      top: 0px;
+      margin-top: 3%;
     }
     #releaseDate{
       position: relative;
-      top: -45px;
+      
+    }
+    #synopsis{
+      text-align: left;
     }
 }
 
@@ -640,3 +726,21 @@ h2 {
   .modal-content {
     margin-top: 15vh;
   }
+  
+  #titleFilm{
+    font-size: 1.5rem;
+    margin-top: 10%;
+  }
+  #releaseDate{
+    margin-top: 2%;
+  }
+  #synopsis{
+    font-size: 1rem;
+    margin-top: 15%;
+  }
+  #averageNoteUser{
+    margin-top: 10%;
+    font-size: 1.5rem;
+    
+  }
+}
