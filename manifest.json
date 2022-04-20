@@ -2,15 +2,15 @@
   "background_color": "#ffffff",
   "dir": "ltr",
   "display": "standalone",
-  "name": "a-piron",
+  "name": "Allojyvé",
   "orientation": "any",
   "scope": "/",
-  "short_name": "a-piron",
+  "short_name": "Allojyvé",
   "start_url": "/",
   "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "images/400x400.png",
+      "src": "images/favicon.png",
       "type": "image/png",
       "sizes": "400x400"
     }
