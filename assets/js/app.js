@@ -1,3 +1,6 @@
+document.getElementById('main').classList.add('none')
+
+
 const pastList = [
     {'listName': 'upcoming', 'pastID':JSON.parse(localStorage.getItem('upcoming'))},
     {'listName': 'now_playing', 'pastID':JSON.parse(localStorage.getItem('now_playing'))},
@@ -17,82 +20,44 @@ var nouveauFilms = '';
 
 
 
-// var loaderInit = document.createElement('div');
-//     loaderInit.id = 'loader';
-//     loaderInit.classList ='none'
-// document.getElementsByTagName('body')[0].prepend(loaderInit);
-// var svgInit = document.createElement('svg');
-//     svgInit.classList = 'icone';
-//     svgInit.setAttribute('width', '447');
-//     svgInit.setAttribute('height', '113');
-//     svgInit.setAttribute('viewBox', '0 0 447 113');
-//     svgInit.setAttribute('fill', 'none');
-//     svgInit.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-// document.getElementById('loader').append(svgInit);
-// var firstG = document.createElement('g');
-//     firstG.id = 'Frame-1';
-//     firstG.setAttribute('clip-path', 'url(#clip0_1_2)');
-// document.getElementsByTagName('svg')[0].append(firstG);
-// var firstRect = document.createElement('rect');
-//     firstRect.setAttribute('width','447');
-//     firstRect.setAttribute('height','113');
-//     firstRect.setAttribute('fill','black');
-// document.getElementById('Frame-1').appendChild(firstRect);
-// var secondG = document.createElement('g');
-//     secondG.id = 'Allojyve';
-// document.getElementById('Frame-1').append(secondG);
-// var firstPath = document.createElement('path');
-//     firstPath.setAttribute('d', 'M12.224 82L35.84 20.176H47.552L70.976 82H60.224L54.08 66.064H29.216L23.072 82H12.224ZM30.848 58H52.352L41.6 29.68L30.848 58Z');
-//     firstPath.setAttribute('fill', '#FBDD00');
-// document.getElementById('Allojyve').append(firstPath);
-// var secondPath = document.createElement('path');
-//     secondPath.setAttribute('d','M92.5948 82.96C88.8828 82.96 86.0668 82.064 84.1468 80.272C82.2268 78.416 81.2668 75.376 81.2668 71.152V17.296H91.7308V70.192C91.7308 71.984 92.0508 73.2 92.6908 73.84C93.3308 74.48 94.2908 74.8 95.5708 74.8C97.1068 74.8 98.5788 74.608 99.9868 74.224V81.808C98.7708 82.256 97.5868 82.544 96.4348 82.672C95.3468 82.864 94.0668 82.96 92.5948 82.96ZM117.064 82.96C113.352 82.96 110.536 82.064 108.616 80.272C106.696 78.416 105.736 75.376 105.736 71.152V17.296H116.2V70.192C116.2 71.984 116.52 73.2 117.16 73.84C117.8 74.48 118.76 74.8 120.04 74.8C121.576 74.8 123.048 74.608 124.456 74.224V81.808C123.24 82.256 122.056 82.544 120.904 82.672C119.816 82.864 118.536 82.96 117.064 82.96ZM154.434 82.96C146.242 82.96 140.226 80.912 136.386 76.816C132.61 72.72 130.722 66.864 130.722 59.248C130.722 51.632 132.642 45.776 136.482 41.68C140.322 37.584 146.306 35.536 154.434 35.536C162.626 35.536 168.642 37.584 172.482 41.68C176.322 45.776 178.242 51.632 178.242 59.248C178.242 66.864 176.322 72.72 172.482 76.816C168.706 80.912 162.69 82.96 154.434 82.96ZM154.434 74.128C159.234 74.128 162.626 72.976 164.61 70.672C166.658 68.304 167.682 64.496 167.682 59.248C167.682 54 166.658 50.224 164.61 47.92C162.626 45.616 159.234 44.464 154.434 44.464C149.698 44.464 146.306 45.616 144.258 47.92C142.274 50.224 141.282 54 141.282 59.248C141.282 64.496 142.274 68.304 144.258 70.672C146.306 72.976 149.698 74.128 154.434 74.128ZM198.023 82.96C192.775 82.96 188.295 82.224 184.583 80.752V71.92C186.119 72.56 187.911 73.104 189.959 73.552C192.071 73.936 194.151 74.128 196.199 74.128C200.487 74.128 203.463 73.264 205.127 71.536C206.855 69.744 207.719 66.896 207.719 62.992V20.176H218.183V64.72C218.183 70.608 216.487 75.12 213.095 78.256C209.767 81.392 204.743 82.96 198.023 82.96ZM240.039 98.896C236.583 98.896 233.639 98.448 231.207 97.552V89.776C232.295 90.16 233.287 90.416 234.183 90.544C235.143 90.672 236.103 90.736 237.063 90.736C239.047 90.736 240.647 90.416 241.863 89.776C243.079 89.136 244.135 88.112 245.031 86.704C245.991 85.36 247.015 83.6 248.103 81.424L227.847 36.496H238.695L253.287 70.288L268.071 36.496H278.823L260.295 79.408C258.695 83.248 256.967 86.608 255.111 89.488C253.319 92.432 251.207 94.736 248.775 96.4C246.407 98.064 243.495 98.896 240.039 98.896ZM298.861 82L280.909 36.496H291.757L304.525 71.824L317.293 36.496H328.045L310.189 82H298.861ZM348.631 31.888L355.831 14.896H365.047L356.983 31.888H348.631ZM356.119 82.96C348.183 82.96 342.039 81.008 337.687 77.104C333.335 73.2 331.159 67.216 331.159 59.152C331.159 51.856 333.015 46.096 336.727 41.872C340.439 37.648 346.071 35.536 353.623 35.536C360.535 35.536 365.719 37.36 369.175 41.008C372.695 44.592 374.455 49.232 374.455 54.928V63.376H341.143C341.655 67.792 343.255 70.832 345.943 72.496C348.631 74.16 352.727 74.992 358.231 74.992C360.535 74.992 362.903 74.768 365.335 74.32C367.767 73.872 369.879 73.296 371.671 72.592V80.272C369.623 81.168 367.255 81.84 364.567 82.288C361.943 82.736 359.127 82.96 356.119 82.96ZM341.143 56.56H365.239V53.392C365.239 50.256 364.375 47.824 362.647 46.096C360.919 44.304 358.007 43.408 353.911 43.408C349.047 43.408 345.687 44.464 343.831 46.576C342.039 48.688 341.143 52.016 341.143 56.56Z');
-//     secondPath.setAttribute('fill','white');
-//     secondPath.setAttribute('stroke', 'white');
-//     secondPath.setAttribute('stroke-width','2');
-// document.getElementById('Allojyve').append(secondPath);
-// var thirdPath = document.createElement('path');
-//     thirdPath.id = 'Line-1';
-//     thirdPath.setAttribute('d', 'M7.99999 108L386.999 109.011');
-//     thirdPath.setAttribute('stroke','#FBDD00');
-//     thirdPath.setAttribute('stroke-width','10');
-// document.getElementById('Frame-1').append(thirdPath);
-// var thirdG = document.createElement('g');
-//     thirdG.id = 'Rectangle1';
-// document.getElementById('Frame-1').append(thirdG);
-// var secondRect = document.createElement('rect');
-//     secondRect.id = 'carre1';
-//     secondRect.setAttribute('x','390');
-//     secondRect.setAttribute('y','57');
-//     secondRect.setAttribute('width','25');
-//     secondRect.setAttribute('height','25');
-//     secondRect.setAttribute('fill', '#FBDD00');
-// document.getElementById('Rectangle1').append(secondRect);
-// var fourthG = document.createElement('g');
-//     fourthG.id ='Rectangle2';
-// document.getElementById('Frame-1').append(fourthG);
-// var thirdRect = document.createElement('rect');
-//     thirdRect.id = 'carre2';
-//     thirdRect.setAttribute('x','415');
-//     thirdRect.setAttribute('y','32');
-//     thirdRect.setAttribute('width','25');
-//     thirdRect.setAttribute('height','25');
-//     thirdRect.setAttribute('fill', '#FBDD00');
-// document.getElementById('Rectangle2').append(thirdRect);
-// var defs = document.createElement('defs');
-// document.getElementsByTagName('svg')[0].append(defs);
-// var clipPath = document.createElement('clipPath')
-//     clipPath.id = 'clip0_1_2';
-// document.getElementsByTagName('defs')[0].append(clipPath)
-// var fourthRect = document.createElement('rect');
-//     fourthRect.setAttribute('width', '447');
-//     fourthRect.setAttribute('height','113');
-//     fourthRect.setAttribute('fill','white');
-// document.getElementById('clip0_1_2').append(fourthRect);
-// setTimeout(() => {
-//     document.getElementById('loader').classList.add('none');
-//     document.getElementById('main').classList.remove('none');
-// }, 6800)
+var loaderInit = document.createElement('div');
+    loaderInit.id = 'loader';
+    loaderInit.innerHTML = `
+    
+    <svg class="icone" width="447" height="113" viewBox="0 0 447 113" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="Frame-1" >
+                <rect width="447" height="113" fill="black" />
+                <g id="AlloJyve">
+                    <path
+                        d="M12.224 82L35.84 20.176H47.552L70.976 82H60.224L54.08 66.064H29.216L23.072 82H12.224ZM30.848 58H52.352L41.6 29.68L30.848 58Z"
+                        fill="#FBDD00" />
+                    <path
+                        d="M92.5948 82.96C88.8828 82.96 86.0668 82.064 84.1468 80.272C82.2268 78.416 81.2668 75.376 81.2668 71.152V17.296H91.7308V70.192C91.7308 71.984 92.0508 73.2 92.6908 73.84C93.3308 74.48 94.2908 74.8 95.5708 74.8C97.1068 74.8 98.5788 74.608 99.9868 74.224V81.808C98.7708 82.256 97.5868 82.544 96.4348 82.672C95.3468 82.864 94.0668 82.96 92.5948 82.96ZM117.064 82.96C113.352 82.96 110.536 82.064 108.616 80.272C106.696 78.416 105.736 75.376 105.736 71.152V17.296H116.2V70.192C116.2 71.984 116.52 73.2 117.16 73.84C117.8 74.48 118.76 74.8 120.04 74.8C121.576 74.8 123.048 74.608 124.456 74.224V81.808C123.24 82.256 122.056 82.544 120.904 82.672C119.816 82.864 118.536 82.96 117.064 82.96ZM154.434 82.96C146.242 82.96 140.226 80.912 136.386 76.816C132.61 72.72 130.722 66.864 130.722 59.248C130.722 51.632 132.642 45.776 136.482 41.68C140.322 37.584 146.306 35.536 154.434 35.536C162.626 35.536 168.642 37.584 172.482 41.68C176.322 45.776 178.242 51.632 178.242 59.248C178.242 66.864 176.322 72.72 172.482 76.816C168.706 80.912 162.69 82.96 154.434 82.96ZM154.434 74.128C159.234 74.128 162.626 72.976 164.61 70.672C166.658 68.304 167.682 64.496 167.682 59.248C167.682 54 166.658 50.224 164.61 47.92C162.626 45.616 159.234 44.464 154.434 44.464C149.698 44.464 146.306 45.616 144.258 47.92C142.274 50.224 141.282 54 141.282 59.248C141.282 64.496 142.274 68.304 144.258 70.672C146.306 72.976 149.698 74.128 154.434 74.128ZM198.023 82.96C192.775 82.96 188.295 82.224 184.583 80.752V71.92C186.119 72.56 187.911 73.104 189.959 73.552C192.071 73.936 194.151 74.128 196.199 74.128C200.487 74.128 203.463 73.264 205.127 71.536C206.855 69.744 207.719 66.896 207.719 62.992V20.176H218.183V64.72C218.183 70.608 216.487 75.12 213.095 78.256C209.767 81.392 204.743 82.96 198.023 82.96ZM240.039 98.896C236.583 98.896 233.639 98.448 231.207 97.552V89.776C232.295 90.16 233.287 90.416 234.183 90.544C235.143 90.672 236.103 90.736 237.063 90.736C239.047 90.736 240.647 90.416 241.863 89.776C243.079 89.136 244.135 88.112 245.031 86.704C245.991 85.36 247.015 83.6 248.103 81.424L227.847 36.496H238.695L253.287 70.288L268.071 36.496H278.823L260.295 79.408C258.695 83.248 256.967 86.608 255.111 89.488C253.319 92.432 251.207 94.736 248.775 96.4C246.407 98.064 243.495 98.896 240.039 98.896ZM298.861 82L280.909 36.496H291.757L304.525 71.824L317.293 36.496H328.045L310.189 82H298.861ZM348.631 31.888L355.831 14.896H365.047L356.983 31.888H348.631ZM356.119 82.96C348.183 82.96 342.039 81.008 337.687 77.104C333.335 73.2 331.159 67.216 331.159 59.152C331.159 51.856 333.015 46.096 336.727 41.872C340.439 37.648 346.071 35.536 353.623 35.536C360.535 35.536 365.719 37.36 369.175 41.008C372.695 44.592 374.455 49.232 374.455 54.928V63.376H341.143C341.655 67.792 343.255 70.832 345.943 72.496C348.631 74.16 352.727 74.992 358.231 74.992C360.535 74.992 362.903 74.768 365.335 74.32C367.767 73.872 369.879 73.296 371.671 72.592V80.272C369.623 81.168 367.255 81.84 364.567 82.288C361.943 82.736 359.127 82.96 356.119 82.96ZM341.143 56.56H365.239V53.392C365.239 50.256 364.375 47.824 362.647 46.096C360.919 44.304 358.007 43.408 353.911 43.408C349.047 43.408 345.687 44.464 343.831 46.576C342.039 48.688 341.143 52.016 341.143 56.56Z"
+                        fill="white" stroke="white" stroke-width="2" />
+                </g>
+                <path id="Line 1" d="M7.99999 108L386.999 109.011" stroke="#FBDD00" stroke-width="10" />
+                <g id="Rectangle1">
+                    <rect id="carre1" x="390" y="57" width="25" height="25" fill="#FBDD00" />
+                </g>
+                <g id="Rectangle2">
+                    <rect id="carre2" x="415" y="32" width="25" height="25" fill="#FBDD00" />
+                </g>
+            </g>
+            <defs>
+                <clippath id="clip0_1_2">
+                    <rect width="447" height="113" fill="white" />
+                </clippath>
+            </defs>
+        </svg>
+    
+    
+    `;
+document.getElementsByTagName('body')[0].prepend(loaderInit);
+setTimeout(() => {
+    document.getElementById('loader').classList.add('none');
+    document.getElementById('main').classList.remove('none');
+}, 6800)
 
 
 
