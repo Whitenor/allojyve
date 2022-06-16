@@ -59,15 +59,6 @@ setTimeout(() => {
     document.getElementById('main').classList.remove('none');
 }, 6800)
 
-
-
-
-
-
-
-
-
-
 const schema = [
     {'type':'header','id':'header','position':'main','classes':'','src':'','textContent':''},
     {'type':'h1','id':'h1','position':'header','classes':'none','src':'','textContent':'Allojyvé'},
