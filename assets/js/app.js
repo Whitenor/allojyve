@@ -341,7 +341,7 @@ setTimeout(() => {
 }, 100);
 
 function createElement(typeElement, elementID, elementIDLocation, elementClass, elementSrc, elementTextContent){
-    var createElement = document.createElement(typeElement);
+    let createElement = document.createElement(typeElement);
     createElement.id = elementID;
     createElement.classList = elementClass;
     createElement.src = elementSrc;
