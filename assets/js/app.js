@@ -1,6 +1,5 @@
+var test;
 document.getElementById('main').classList.add('none')
-
-
 const pastList = [
     {'listName': 'upcoming', 'pastID':JSON.parse(localStorage.getItem('upcoming'))},
     {'listName': 'now_playing', 'pastID':JSON.parse(localStorage.getItem('now_playing'))},
@@ -14,12 +13,7 @@ var listActual = [
     {'listName' : 'popular', 'actualID':[], 'title':[]}
 ];
 var nouveauFilms = '';
-
-
 // Loader
-
-
-
 var loaderInit = document.createElement('div');
     loaderInit.id = 'loader';
     loaderInit.innerHTML = `
@@ -58,7 +52,6 @@ setTimeout(() => {
     document.getElementById('loader').classList.add('none');
     document.getElementById('main').classList.remove('none');
 }, 6800)
-
 const schema = [
     {'type':'header','id':'header','position':'main','classes':'','src':'','textContent':''},
     {'type':'h1','id':'h1','position':'header','classes':'none','src':'','textContent':'Allojyvé'},
@@ -113,12 +106,10 @@ modalGeneral.id = 'modal'
 modalGeneral.classList = 'modal'
 document.getElementsByTagName('body')[0].append(modalGeneral)
 // Contenu Principal
-
 getList('upcoming','Prochainement', 'upcomingTitle', 'upcomingSlide', 'cardUpcoming').then(res => {
     getList('now_playing','À l\'affiche','nowPlayingsTitle', 'nowPlayingSlide', 'cardNowPlaying');
     getList('popular', 'Populaires', 'popularTitle', 'popularSlide', 'cardPopular');
 });
-
 document.getElementById('menuBurger').addEventListener('click', function(){
     document.getElementById('mobileNav').classList.remove('heightMobileNav');
     document.getElementsByTagName('body')[0].style.overflowY = 'hidden';
@@ -129,7 +120,6 @@ document.getElementById('menuBurger').addEventListener('click', function(){
         
     }, 100);
 })
-
 document.getElementById('closeMenu').addEventListener('click', function(){
     setTimeout(() => {
         document.getElementById('menuBurger').classList.remove('transparent');
@@ -142,7 +132,6 @@ document.getElementById('closeMenu').addEventListener('click', function(){
         document.getElementById('menuMobile').classList.remove('open');
     }, 500);
 })
-
 var buttons = document.getElementsByClassName('navBtn');
 for (let index = 0; index < buttons.length; index++) {
     const btn = buttons[index];
@@ -186,7 +175,6 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                 document.getElementById('allSlider').append(Slide);
                 var listArray = [];
                 res.json().then(response => {
-                    console.log(response)
                     for (i = 0; i < 20; i++) {
                         var card = document.createElement('div');
                         card.classList = 'card '+cardClassSpec;
@@ -273,8 +261,8 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
                                 }
                             })
                         })
-                        listActual[x].actualID[i] = response.results[i].id;
-                        listActual[x].title[i] = response.results[i].title;
+                        listActual[x].actualID.push(response.results[i].id);
+                        listActual[x].title.push(response.results[i].title);
                     }
                     resolve();
                     x++;
@@ -284,21 +272,22 @@ function getList(listName, titleContent, titleID, sliderID, cardClassSpec){
     });
 }
 var listID = pastList[1].pastID
+var actualIDList = listActual[1].actualID
 for (let y = 0; y < listID.length; y++) {
-    if (pastList[1].pastID[y] !== listID[y]) {
+    console.log(actualIDList[1]);
+    if (listID[y] === listActual[1].actualID[y]) {
         if ( y === 19){
             nouveauFilms = nouveauFilms + listActual[1].title[y];
             newFilmCount++;
+            console.log(listID[y], listActual[1].actualID[y]);
         }
         else{
             nouveauFilms = nouveauFilms + listActual[1].title[y] + ', ';
             newFilmCount++;
         }
     }
-    else{
-        break;
-    }
-    console.log(y)    
+    // console.log(listID[y], listActual[1].actualID[y]);
+    console.log(listActual[1].actualID);
 }
 setTimeout(() => {
     if (newFilmCount !== 0) {
@@ -339,7 +328,6 @@ setTimeout(() => {
         }) 
     }
 }, 100);
-
 function createElement(typeElement, elementID, elementIDLocation, elementClass, elementSrc, elementTextContent){
     let createElement = document.createElement(typeElement);
     createElement.id = elementID;
@@ -348,18 +336,14 @@ function createElement(typeElement, elementID, elementIDLocation, elementClass, 
     createElement.textContent = elementTextContent;
     document.getElementById(elementIDLocation).append(createElement);
 }
-
 window.onclick = function(event) {
     if (event.target == document.getElementById('modalAlert')) {
         document.getElementById('modalAlert').style.display = "none";
     }
 }
-
 document.getElementById('logoNav').addEventListener('click',function(){
     var offsetTop = document.getElementById('h1').offsetTop;
-    console.log(offsetTop)
     var offsetLeft = document.getElementById('h1').offsetLeft;
-    console.log(offsetLeft)
     window.scrollTo(offsetTop,offsetLeft)
 })
 document.getElementById('logoMobileNav').addEventListener('click',function(){
